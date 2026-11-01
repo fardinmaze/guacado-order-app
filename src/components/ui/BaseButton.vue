@@ -59,5 +59,6 @@ const isMagnetic = props.magnetic ?? props.variant !== 'ghost'
   border-color: var(--btn-ghost-line, var(--line));
 }
 .btn--ghost:hover { border-color: var(--btn-ghost-ink, var(--ink)); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
 .btn :deep(svg) { width: 18px; height: 18px; }
 </style>

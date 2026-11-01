@@ -1,0 +1,376 @@
+{
+  "_meta": {
+    "source": "guacadomexican.com, Nov 2026",
+    "note": "taxRate null = OWNER TO CONFIRM per store before launch. Hours from site (Mon\u2013Sun 10:30am\u20133am); confirm per store."
+  },
+  "stores": [
+    {
+      "address": "5119-A Avenue U",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zip": "11234",
+      "slug": "brooklyn-5119-a-avenue-u",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "2006 Cropsey Avenue",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zip": "11214",
+      "slug": "brooklyn-2006-cropsey-avenue",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "508 Clarkson Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zip": "11203",
+      "slug": "brooklyn-508-clarkson-ave",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "1884 3rd Ave",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10029",
+      "slug": "new-york-1884-3rd-ave",
+      "timezone": "America/New_York",
+      "status": "COMING_SOON",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "523 W 207th St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10034",
+      "slug": "new-york-523-w-207th-st",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "3504 Broadway",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10031",
+      "slug": "new-york-3504-broadway",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "746 Lydig Ave",
+      "city": "Bronx",
+      "state": "NY",
+      "zip": "10462",
+      "slug": "bronx-746-lydig-ave",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "3429 E Tremont Ave",
+      "city": "Bronx",
+      "state": "NY",
+      "zip": "10465",
+      "slug": "bronx-3429-e-tremont-ave",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "421 E 149 Street",
+      "city": "Bronx",
+      "state": "NY",
+      "zip": "10455",
+      "slug": "bronx-421-e-149-street",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "157-02 Cross Bay Blvd",
+      "city": "Howard Beach",
+      "state": "NY",
+      "zip": "11414",
+      "slug": "howard-beach-157-02-cross-bay-blvd",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "7019 Austin Street",
+      "city": "Forest Hills",
+      "state": "NY",
+      "zip": "11375",
+      "slug": "forest-hills-7019-austin-street",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "95-05 57th Ave",
+      "city": "Corona",
+      "state": "NY",
+      "zip": "11368",
+      "slug": "corona-95-05-57th-ave",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "1679 Hylan Boulevard",
+      "city": "Staten Island",
+      "state": "NY",
+      "zip": "10305",
+      "slug": "staten-island-1679-hylan-boulevard",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "255 Fulton Avenue",
+      "city": "Hempstead",
+      "state": "NY",
+      "zip": "11550",
+      "slug": "hempstead-255-fulton-avenue",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "490 Pearl St",
+      "city": "Buffalo",
+      "state": "NY",
+      "zip": "14202",
+      "slug": "buffalo-490-pearl-st",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "939 Main Street",
+      "city": "Paterson",
+      "state": "NJ",
+      "zip": "07503",
+      "slug": "paterson-939-main-street",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "55 Bloomfield Avenue",
+      "city": "Bloomfield",
+      "state": "NJ",
+      "zip": "07003",
+      "slug": "bloomfield-55-bloomfield-avenue",
+      "timezone": "America/New_York",
+      "status": "COMING_SOON",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "275 Comly Rd",
+      "city": "Lincoln Park",
+      "state": "NJ",
+      "zip": "07035",
+      "slug": "lincoln-park-275-comly-rd",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "240 McMechen St.",
+      "city": "Baltimore",
+      "state": "MD",
+      "zip": "21217",
+      "slug": "baltimore-240-mcmechen-st",
+      "timezone": "America/New_York",
+      "status": "COMING_SOON",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "13600 Baltimore Avenue",
+      "city": "Laurel",
+      "state": "MD",
+      "zip": "20707",
+      "slug": "laurel-13600-baltimore-avenue",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "1405 E Main St",
+      "city": "Waterbury",
+      "state": "CT",
+      "zip": "06705",
+      "slug": "waterbury-1405-e-main-st",
+      "timezone": "America/New_York",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "410 Semple St",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15213",
+      "slug": "pittsburgh-410-semple-st",
+      "timezone": "America/New_York",
+      "status": "COMING_SOON",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    },
+    {
+      "address": "12197 Conant Rd",
+      "city": "Hamtramck",
+      "state": "MI",
+      "zip": "48212",
+      "slug": "hamtramck-12197-conant-rd",
+      "timezone": "America/Detroit",
+      "status": "OPEN",
+      "hours": {
+        "daily": {
+          "opensAt": "10:30",
+          "closesAt": "03:00"
+        }
+      },
+      "taxRate": null
+    }
+  ]
+}

@@ -1,0 +1,1525 @@
+{
+  "_meta": {
+    "source": "Guacado menu boards (Sides/Beverages/Family Kit, Build Your Own, Tacos/Specials/Kids). Prices in US cents.",
+    "advisory": "Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions. Please inform us of any allergies you may have prior to ordering.",
+    "rules": {
+      "builderPrice": "protein option price + add-ons",
+      "extraProteinCents": 295,
+      "addGuacCents": 195,
+      "levels": [
+        "light",
+        "regular",
+        "extra",
+        "side"
+      ]
+    },
+    "toConfirm": [
+      "toppings list",
+      "which extras are charged",
+      "calories per ingredient (only item ranges are on the boards)",
+      "per-store tax rates"
+    ]
+  },
+  "categories": [
+    {
+      "slug": "build-your-own",
+      "name": "Build Your Own",
+      "items": [
+        {
+          "slug": "build-your-own",
+          "name": "Build Your Own",
+          "kind": "BUILDER",
+          "basePriceCents": 0,
+          "calMin": 420,
+          "calMax": 1310,
+          "description": "Choose a base, a protein, toppings from our fresh selection and a homemade sauce.",
+          "groups": [
+            {
+              "key": "base",
+              "name": "Choose your base",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Bowl",
+                  "priceCents": 0,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Burrito",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Nachos",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Quesadilla",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Crunch Wrap",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Salad",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Taco Salad",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Fries",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 0
+            },
+            {
+              "key": "protein",
+              "name": "Choose your protein",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "allowLevels": true,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 1295,
+                  "ingredient": "grill-chicken",
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 1395,
+                  "ingredient": "honey-chipotle",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 1395,
+                  "ingredient": "grilled-steak",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 1395,
+                  "ingredient": "ground-beef",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 1395,
+                  "ingredient": "grilled-shrimp",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 1395,
+                  "ingredient": "beef-barbacoa",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 1195,
+                  "ingredient": "veggie-fajita-guac",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 1195,
+                  "ingredient": "tofu",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 1
+            },
+            {
+              "key": "toppings",
+              "name": "Choose your toppings",
+              "minSelect": 0,
+              "maxSelect": 8,
+              "allowLevels": true,
+              "setsPrice": false,
+              "note": "OWNER TO CONFIRM list (board says 'From Our Fresh Selection')",
+              "options": [
+                {
+                  "name": "Rice",
+                  "priceCents": 0,
+                  "ingredient": "rice",
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Beans",
+                  "priceCents": 0,
+                  "ingredient": "beans",
+                  "isDefault": true,
+                  "sort": 1
+                },
+                {
+                  "name": "Pico de Gallo",
+                  "priceCents": 0,
+                  "ingredient": "pico-de-gallo",
+                  "isDefault": true,
+                  "sort": 2
+                },
+                {
+                  "name": "Salsa",
+                  "priceCents": 0,
+                  "ingredient": "salsa",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Lettuce",
+                  "priceCents": 0,
+                  "ingredient": "lettuce",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Shredded Cheese",
+                  "priceCents": 0,
+                  "ingredient": "shredded-cheese",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Sour Cream",
+                  "priceCents": 0,
+                  "ingredient": "sour-cream",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Jalapeños",
+                  "priceCents": 0,
+                  "ingredient": "jalapenos",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 2
+            },
+            {
+              "key": "addons",
+              "name": "Add-ons",
+              "minSelect": 0,
+              "maxSelect": 2,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Add Fresh Guac",
+                  "priceCents": 195,
+                  "ingredient": "guacamole",
+                  "sort": 0
+                },
+                {
+                  "name": "Extra Protein",
+                  "priceCents": 295,
+                  "sort": 1
+                }
+              ],
+              "sort": 3
+            },
+            {
+              "key": "sauce",
+              "name": "Choose our homemade sauce",
+              "minSelect": 0,
+              "maxSelect": 2,
+              "allowLevels": true,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Chipotle Sauce",
+                  "priceCents": 0,
+                  "heat": 1,
+                  "ingredient": "chipotle-sauce",
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Mango Sauce",
+                  "priceCents": 0,
+                  "heat": 0,
+                  "ingredient": "mango-sauce",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Limon Sauce",
+                  "priceCents": 0,
+                  "heat": 0,
+                  "ingredient": "limon-sauce",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Sour Cream Sauce",
+                  "priceCents": 0,
+                  "heat": 0,
+                  "ingredient": "sour-cream-sauce",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Guacado Sauce",
+                  "priceCents": 0,
+                  "heat": 0,
+                  "ingredient": "guacado-sauce",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Smoky Habanero Sauce",
+                  "priceCents": 0,
+                  "heat": 3,
+                  "ingredient": "smoky-habanero-sauce",
+                  "isDefault": false,
+                  "sort": 5
+                }
+              ],
+              "sort": 4
+            }
+          ],
+          "sort": 0
+        }
+      ],
+      "sort": 0
+    },
+    {
+      "slug": "tacos",
+      "name": "Tacos",
+      "items": [
+        {
+          "slug": "birria-tacos",
+          "name": "Birria Tacos",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 430,
+          "calMax": 1150,
+          "groups": [
+            {
+              "key": "meat",
+              "name": "Chicken or beef",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Chicken",
+                  "priceCents": 0,
+                  "ingredient": "birria-chicken",
+                  "sort": 0
+                },
+                {
+                  "name": "Beef",
+                  "priceCents": 0,
+                  "ingredient": "birria-beef",
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false,
+              "setsPrice": false
+            },
+            {
+              "key": "size",
+              "name": "How many",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "2 pc",
+                  "priceCents": 1195,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "3 pc",
+                  "priceCents": 1595,
+                  "sort": 1
+                },
+                {
+                  "name": "Pie",
+                  "priceCents": 3095,
+                  "sort": 2
+                }
+              ],
+              "sort": 1,
+              "allowLevels": false
+            }
+          ],
+          "sort": 0
+        },
+        {
+          "slug": "tacos",
+          "name": "Tacos",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 390,
+          "calMax": 1240,
+          "description": "Pick one meat with your choice of toppings.",
+          "groups": [
+            {
+              "key": "shell",
+              "name": "Soft or crispy",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Soft",
+                  "priceCents": 0,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Crispy",
+                  "priceCents": 0,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false,
+              "setsPrice": false
+            },
+            {
+              "key": "size",
+              "name": "How many",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "2 tacos",
+                  "priceCents": 1195,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "3 tacos",
+                  "priceCents": 1595,
+                  "sort": 1
+                }
+              ],
+              "sort": 1,
+              "allowLevels": false
+            },
+            {
+              "key": "protein",
+              "name": "Pick one meat",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 0,
+                  "ingredient": "grill-chicken",
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 0,
+                  "ingredient": "honey-chipotle",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 0,
+                  "ingredient": "grilled-steak",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 0,
+                  "ingredient": "ground-beef",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 0,
+                  "ingredient": "grilled-shrimp",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 0,
+                  "ingredient": "beef-barbacoa",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 0,
+                  "ingredient": "veggie-fajita-guac",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 0,
+                  "ingredient": "tofu",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 2
+            },
+            {
+              "key": "toppings",
+              "name": "Toppings",
+              "minSelect": 0,
+              "maxSelect": 8,
+              "allowLevels": true,
+              "options": [
+                {
+                  "name": "Rice",
+                  "priceCents": 0,
+                  "ingredient": "rice",
+                  "sort": 0
+                },
+                {
+                  "name": "Beans",
+                  "priceCents": 0,
+                  "ingredient": "beans",
+                  "sort": 1
+                },
+                {
+                  "name": "Pico de Gallo",
+                  "priceCents": 0,
+                  "ingredient": "pico-de-gallo",
+                  "sort": 2
+                },
+                {
+                  "name": "Salsa",
+                  "priceCents": 0,
+                  "ingredient": "salsa",
+                  "sort": 3
+                },
+                {
+                  "name": "Lettuce",
+                  "priceCents": 0,
+                  "ingredient": "lettuce",
+                  "sort": 4
+                },
+                {
+                  "name": "Shredded Cheese",
+                  "priceCents": 0,
+                  "ingredient": "shredded-cheese",
+                  "sort": 5
+                },
+                {
+                  "name": "Sour Cream",
+                  "priceCents": 0,
+                  "ingredient": "sour-cream",
+                  "sort": 6
+                },
+                {
+                  "name": "Jalapeños",
+                  "priceCents": 0,
+                  "ingredient": "jalapenos",
+                  "sort": 7
+                }
+              ],
+              "sort": 3,
+              "setsPrice": false
+            }
+          ],
+          "sort": 1
+        }
+      ],
+      "sort": 1
+    },
+    {
+      "slug": "specials",
+      "name": "Specials",
+      "items": [
+        {
+          "slug": "tostada",
+          "name": "Tostada",
+          "kind": "FIXED",
+          "basePriceCents": 895,
+          "calMin": 333,
+          "calMax": 690,
+          "description": "Choice of one protein, served with black beans, pico de gallo, cheese, guac, lettuce and sauce.",
+          "groups": [
+            {
+              "key": "protein",
+              "name": "Choose your protein",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 0,
+                  "ingredient": "grill-chicken",
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 0,
+                  "ingredient": "honey-chipotle",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 0,
+                  "ingredient": "grilled-steak",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 0,
+                  "ingredient": "ground-beef",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 0,
+                  "ingredient": "grilled-shrimp",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 0,
+                  "ingredient": "beef-barbacoa",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 0,
+                  "ingredient": "veggie-fajita-guac",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 0,
+                  "ingredient": "tofu",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 0
+            }
+          ],
+          "sort": 0
+        }
+      ],
+      "sort": 2
+    },
+    {
+      "slug": "kids",
+      "name": "Kids Meal",
+      "note": "Includes organic milk or water",
+      "items": [
+        {
+          "slug": "kids-create-your-own",
+          "name": "Kids Create Your Own",
+          "kind": "FIXED",
+          "basePriceCents": 895,
+          "calMin": 300,
+          "calMax": 530,
+          "description": "A meat or guac and two toppings, with two soft or crispy tortillas. Includes organic milk or water.",
+          "groups": [
+            {
+              "key": "main",
+              "name": "Meat or guac",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 0,
+                  "ingredient": "grill-chicken",
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 0,
+                  "ingredient": "honey-chipotle",
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 0,
+                  "ingredient": "grilled-steak",
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 0,
+                  "ingredient": "ground-beef",
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 0,
+                  "ingredient": "grilled-shrimp",
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 0,
+                  "ingredient": "beef-barbacoa",
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 0,
+                  "ingredient": "veggie-fajita-guac",
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 0,
+                  "ingredient": "tofu",
+                  "sort": 7
+                },
+                {
+                  "name": "Guac",
+                  "priceCents": 0,
+                  "ingredient": "guacamole",
+                  "sort": 8
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false,
+              "setsPrice": false
+            },
+            {
+              "key": "toppings",
+              "name": "Two toppings",
+              "minSelect": 2,
+              "maxSelect": 2,
+              "options": [
+                {
+                  "name": "Rice",
+                  "priceCents": 0,
+                  "ingredient": "rice",
+                  "sort": 0
+                },
+                {
+                  "name": "Beans",
+                  "priceCents": 0,
+                  "ingredient": "beans",
+                  "sort": 1
+                },
+                {
+                  "name": "Pico de Gallo",
+                  "priceCents": 0,
+                  "ingredient": "pico-de-gallo",
+                  "sort": 2
+                },
+                {
+                  "name": "Salsa",
+                  "priceCents": 0,
+                  "ingredient": "salsa",
+                  "sort": 3
+                },
+                {
+                  "name": "Lettuce",
+                  "priceCents": 0,
+                  "ingredient": "lettuce",
+                  "sort": 4
+                },
+                {
+                  "name": "Shredded Cheese",
+                  "priceCents": 0,
+                  "ingredient": "shredded-cheese",
+                  "sort": 5
+                },
+                {
+                  "name": "Sour Cream",
+                  "priceCents": 0,
+                  "ingredient": "sour-cream",
+                  "sort": 6
+                },
+                {
+                  "name": "Jalapeños",
+                  "priceCents": 0,
+                  "ingredient": "jalapenos",
+                  "sort": 7
+                }
+              ],
+              "sort": 1,
+              "allowLevels": false,
+              "setsPrice": false
+            },
+            {
+              "key": "shell",
+              "name": "Tortillas",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Soft",
+                  "priceCents": 0,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Crispy",
+                  "priceCents": 0,
+                  "sort": 1
+                }
+              ],
+              "sort": 2,
+              "allowLevels": false,
+              "setsPrice": false
+            },
+            {
+              "key": "drink",
+              "name": "Drink",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Organic Milk",
+                  "priceCents": 0,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Water",
+                  "priceCents": 0,
+                  "sort": 1
+                }
+              ],
+              "sort": 3,
+              "allowLevels": false,
+              "setsPrice": false
+            }
+          ],
+          "sort": 0
+        },
+        {
+          "slug": "kids-cheese-quesadilla",
+          "name": "Kids Cheese Quesadilla",
+          "kind": "FIXED",
+          "basePriceCents": 895,
+          "calMin": 310,
+          "calMax": 540,
+          "groups": [
+            {
+              "key": "drink",
+              "name": "Drink",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Organic Milk",
+                  "priceCents": 0,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Water",
+                  "priceCents": 0,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false,
+              "setsPrice": false
+            }
+          ],
+          "sort": 1
+        }
+      ],
+      "sort": 3
+    },
+    {
+      "slug": "sides",
+      "name": "Sides",
+      "items": [
+        {
+          "slug": "chips",
+          "name": "Chips",
+          "kind": "FIXED",
+          "basePriceCents": 295,
+          "calMin": 430,
+          "calMax": 430,
+          "groups": [],
+          "sort": 0
+        },
+        {
+          "slug": "fries-dipper",
+          "name": "Fries Dipper",
+          "kind": "FIXED",
+          "basePriceCents": 495,
+          "calMin": 395,
+          "calMax": 395,
+          "groups": [],
+          "sort": 1
+        },
+        {
+          "slug": "nacho-cheese-fries",
+          "name": "Nacho Cheese Fries",
+          "kind": "FIXED",
+          "basePriceCents": 695,
+          "calMin": 598,
+          "calMax": 598,
+          "groups": [],
+          "sort": 2
+        },
+        {
+          "slug": "tortilla-on-side",
+          "name": "Tortilla on Side",
+          "kind": "FIXED",
+          "basePriceCents": 95,
+          "calMin": null,
+          "calMax": null,
+          "groups": [],
+          "sort": 3
+        },
+        {
+          "slug": "rice-and-beans",
+          "name": "Rice and Beans",
+          "kind": "FIXED",
+          "basePriceCents": 495,
+          "calMin": 160,
+          "calMax": 220,
+          "groups": [],
+          "sort": 4
+        }
+      ],
+      "sort": 4
+    },
+    {
+      "slug": "dips",
+      "name": "Dips",
+      "items": [
+        {
+          "slug": "guacamole",
+          "name": "Guacamole",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 270,
+          "calMax": 660,
+          "groups": [
+            {
+              "key": "size",
+              "name": "Size",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "4 oz",
+                  "priceCents": 395,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "8 oz",
+                  "priceCents": 695,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false
+            }
+          ],
+          "sort": 0
+        },
+        {
+          "slug": "queso",
+          "name": "Queso",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 456,
+          "calMax": 780,
+          "groups": [
+            {
+              "key": "size",
+              "name": "Size",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "4 oz",
+                  "priceCents": 395,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "8 oz",
+                  "priceCents": 695,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false
+            }
+          ],
+          "sort": 1
+        },
+        {
+          "slug": "salsa",
+          "name": "Salsa",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 40,
+          "calMax": 95,
+          "groups": [
+            {
+              "key": "size",
+              "name": "Size",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "4 oz",
+                  "priceCents": 295,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "8 oz",
+                  "priceCents": 545,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false
+            }
+          ],
+          "sort": 2
+        },
+        {
+          "slug": "chips-guac",
+          "name": "Chips & Guac",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 510,
+          "calMax": 770,
+          "groups": [
+            {
+              "key": "size",
+              "name": "Size",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "4 oz",
+                  "priceCents": 645,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "8 oz",
+                  "priceCents": 895,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false
+            }
+          ],
+          "sort": 3
+        },
+        {
+          "slug": "chips-queso",
+          "name": "Chips & Queso",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 520,
+          "calMax": 820,
+          "groups": [
+            {
+              "key": "size",
+              "name": "Size",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "4 oz",
+                  "priceCents": 645,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "8 oz",
+                  "priceCents": 895,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false
+            }
+          ],
+          "sort": 4
+        },
+        {
+          "slug": "chips-salsa",
+          "name": "Chips & Salsa",
+          "kind": "FIXED",
+          "basePriceCents": 0,
+          "calMin": 435,
+          "calMax": 545,
+          "groups": [
+            {
+              "key": "size",
+              "name": "Size",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "setsPrice": true,
+              "options": [
+                {
+                  "name": "4 oz",
+                  "priceCents": 545,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "8 oz",
+                  "priceCents": 745,
+                  "sort": 1
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false
+            }
+          ],
+          "sort": 5
+        }
+      ],
+      "sort": 5
+    },
+    {
+      "slug": "beverages",
+      "name": "Beverages",
+      "items": [
+        {
+          "slug": "bottle-drink",
+          "name": "Bottle Drink",
+          "kind": "FIXED",
+          "basePriceCents": 295,
+          "groups": [],
+          "sort": 0
+        },
+        {
+          "slug": "water",
+          "name": "Water",
+          "kind": "FIXED",
+          "basePriceCents": 195,
+          "groups": [],
+          "sort": 1
+        },
+        {
+          "slug": "organic-tractor-tea",
+          "name": "Organic Tractor Tea",
+          "kind": "FIXED",
+          "basePriceCents": 495,
+          "groups": [],
+          "sort": 2
+        },
+        {
+          "slug": "organic-lemonade",
+          "name": "Organic Lemonade",
+          "kind": "FIXED",
+          "basePriceCents": 495,
+          "groups": [],
+          "sort": 3
+        },
+        {
+          "slug": "shake",
+          "name": "Shake",
+          "kind": "FIXED",
+          "basePriceCents": 495,
+          "groups": [
+            {
+              "key": "flavor",
+              "name": "Flavor",
+              "minSelect": 1,
+              "maxSelect": 1,
+              "options": [
+                {
+                  "name": "Vanilla",
+                  "priceCents": 0,
+                  "isDefault": true,
+                  "sort": 0
+                },
+                {
+                  "name": "Chocolate",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Strawberry",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Oreo",
+                  "priceCents": 0,
+                  "isDefault": false,
+                  "sort": 3
+                }
+              ],
+              "sort": 0,
+              "allowLevels": false,
+              "setsPrice": false
+            }
+          ],
+          "sort": 4
+        }
+      ],
+      "sort": 6
+    },
+    {
+      "slug": "desserts",
+      "name": "Desserts",
+      "items": [
+        {
+          "slug": "churros",
+          "name": "Churros",
+          "kind": "FIXED",
+          "basePriceCents": 395,
+          "groups": [],
+          "sort": 0
+        },
+        {
+          "slug": "tres-leches-cake",
+          "name": "Tres Leches Cake",
+          "kind": "FIXED",
+          "basePriceCents": 495,
+          "groups": [],
+          "sort": 1
+        },
+        {
+          "slug": "plantains",
+          "name": "Plantains",
+          "kind": "FIXED",
+          "basePriceCents": 395,
+          "groups": [],
+          "sort": 2
+        }
+      ],
+      "sort": 7
+    },
+    {
+      "slug": "family-kits",
+      "name": "Family Kits",
+      "note": "Feeds 4–6",
+      "items": [
+        {
+          "slug": "taco-kit",
+          "name": "Taco Kit",
+          "kind": "FIXED",
+          "basePriceCents": 4995,
+          "calMin": 5900,
+          "calMax": 6626,
+          "includes": [
+            "12 soft corn tortillas",
+            "Pico de gallo",
+            "Salsa",
+            "Rice",
+            "Beans",
+            "Lettuce",
+            "Shredded cheese",
+            "Sour cream"
+          ],
+          "groups": [
+            {
+              "key": "kitProteins",
+              "name": "Choose 2 proteins",
+              "minSelect": 2,
+              "maxSelect": 2,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 0,
+                  "ingredient": "grill-chicken",
+                  "isDefault": false,
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 0,
+                  "ingredient": "honey-chipotle",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 0,
+                  "ingredient": "grilled-steak",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 0,
+                  "ingredient": "ground-beef",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 0,
+                  "ingredient": "grilled-shrimp",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 0,
+                  "ingredient": "beef-barbacoa",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 0,
+                  "ingredient": "veggie-fajita-guac",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 0,
+                  "ingredient": "tofu",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 0
+            }
+          ],
+          "sort": 0
+        },
+        {
+          "slug": "nacho-kit",
+          "name": "Nacho Kit",
+          "kind": "FIXED",
+          "basePriceCents": 4995,
+          "calMin": 8912,
+          "calMax": 9798,
+          "includes": [
+            "Chips",
+            "2 queso",
+            "2 pico de gallo",
+            "Salsa",
+            "Beans",
+            "Jalapeños",
+            "Sour cream"
+          ],
+          "groups": [
+            {
+              "key": "kitProteins",
+              "name": "Choose 2 proteins",
+              "minSelect": 2,
+              "maxSelect": 2,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 0,
+                  "ingredient": "grill-chicken",
+                  "isDefault": false,
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 0,
+                  "ingredient": "honey-chipotle",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 0,
+                  "ingredient": "grilled-steak",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 0,
+                  "ingredient": "ground-beef",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 0,
+                  "ingredient": "grilled-shrimp",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 0,
+                  "ingredient": "beef-barbacoa",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 0,
+                  "ingredient": "veggie-fajita-guac",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 0,
+                  "ingredient": "tofu",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 0
+            }
+          ],
+          "sort": 1
+        },
+        {
+          "slug": "fajita-kit",
+          "name": "Fajita Kit",
+          "kind": "FIXED",
+          "basePriceCents": 5595,
+          "calMin": 6341,
+          "calMax": 7160,
+          "includes": [
+            "12 soft corn tortillas",
+            "Fajita",
+            "Guac",
+            "Pico de gallo",
+            "Salsa",
+            "Rice",
+            "Beans",
+            "Lettuce",
+            "Shredded cheese",
+            "Sour cream"
+          ],
+          "groups": [
+            {
+              "key": "kitProteins",
+              "name": "Choose 2 proteins",
+              "minSelect": 2,
+              "maxSelect": 2,
+              "allowLevels": false,
+              "setsPrice": false,
+              "options": [
+                {
+                  "name": "Grill Chicken",
+                  "priceCents": 0,
+                  "ingredient": "grill-chicken",
+                  "isDefault": false,
+                  "sort": 0
+                },
+                {
+                  "name": "Honey Chipotle",
+                  "priceCents": 0,
+                  "ingredient": "honey-chipotle",
+                  "isDefault": false,
+                  "sort": 1
+                },
+                {
+                  "name": "Grilled Steak",
+                  "priceCents": 0,
+                  "ingredient": "grilled-steak",
+                  "isDefault": false,
+                  "sort": 2
+                },
+                {
+                  "name": "Ground Beef",
+                  "priceCents": 0,
+                  "ingredient": "ground-beef",
+                  "isDefault": false,
+                  "sort": 3
+                },
+                {
+                  "name": "Grilled Shrimp",
+                  "priceCents": 0,
+                  "ingredient": "grilled-shrimp",
+                  "isDefault": false,
+                  "sort": 4
+                },
+                {
+                  "name": "Beef Barbacoa",
+                  "priceCents": 0,
+                  "ingredient": "beef-barbacoa",
+                  "isDefault": false,
+                  "sort": 5
+                },
+                {
+                  "name": "Veggie Fajita w/ Guac",
+                  "priceCents": 0,
+                  "ingredient": "veggie-fajita-guac",
+                  "isDefault": false,
+                  "sort": 6
+                },
+                {
+                  "name": "Tofu",
+                  "priceCents": 0,
+                  "ingredient": "tofu",
+                  "isDefault": false,
+                  "sort": 7
+                }
+              ],
+              "sort": 0
+            }
+          ],
+          "sort": 2
+        }
+      ],
+      "sort": 8
+    }
+  ]
+}

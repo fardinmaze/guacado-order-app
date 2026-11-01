@@ -11,12 +11,35 @@ Newest entries last. Update this file at the end of every working session.
 | Component library (ui / layout / builder / sections) | Done |
 | Home page (all 9 sections, BRAND.md §8) | Done |
 | `/menu`, `/catering`, `/locations` routes | Done |
-| Unit + smoke tests (25) | Passing |
+| Unit + smoke tests (59) | Passing |
+| Mobile ordering flow `/order` (front end) | Done; payment/backend not built |
 | Production build | Passing |
 | **Visual / browser QA of GSAP motion** | **Not done** (see Open items) |
 | Vector logo, real food photos | Blocked on owner |
 
 ---
+
+## 2026-11-02 — Session 4: mobile ordering flow (`/order`)
+
+Built from the docs the owner dropped in `public/Mobile View/` (`CLAUDE.md`, `01-ANALYSIS` … `04-BUILD-PLAN`, seed JSON). Those docs describe a Next.js + Postgres + Stripe app; this repo is Vue + JavaScript with no backend, so only the **phone-first front end** was built. Owner chose this scope.
+
+**Built (front end, all in `src/order/`)**
+- LOC-01/03/04: location picker (search by street/city/ZIP, grouped by state, open/closed in the store's own time zone, coming-soon stores listed but not selectable, chosen store remembered).
+- MENU-01…07, 09, 10, 11: menu home (Build Your Own hero, category cards with "From $X", every item with price + calories, one-tap add for simple items), 5-step builder (`?step=` in the URL so back works), Light/Regular/Extra/On-the-side levels, +$1.95 guac, Extra protein +$2.95 (charged once), heat labels, "name this meal", fixed-item pages (birria, tacos, dips, kids, kits needing exactly 2 proteins), food advisory.
+- MENU-05: sticky bottom bar with the live total in a polite live region.
+- CART-01/02/04/05/07 (UI): bag sheet (edit, duplicate, remove, qty), bag persisted to `localStorage`, checkout page with ASAP/scheduled slots, guest details validation, tip chips, summary. Slots are computed per store time zone and are DST-safe.
+- Mobile specifics: 44 px+ targets, 16 px inputs (no iOS zoom), safe-area padding, bottom action bar, full-screen bag sheet, no horizontal page scroll by design (category strip scrolls inside itself).
+
+**Deliberately not built / open**
+- **Payment, order creation, tracking, accounts, kitchen dashboard, SMS/email** need a server (Stripe, DB). The checkout button is disabled and says so; DoorDash link-out is shown.
+- **Tax**: store `taxRate` is `null` in the seed ("OWNER TO CONFIRM"), so tax shows "Confirmed at your restaurant" and the total says "+ tax". Nothing invented.
+- LOC-02 "use my location": the seed has no coordinates.
+- Sold-out handling (MENU-08), saved meals/reorder (ACC), capacity-limited slots: need server data.
+- **Entry point**: the main site's Order buttons still go to the live DoorDash URL (BRAND.md contract, and payment is off). `/order` is reachable by URL only. Switching them is a one-line change in `src/data/site.js` once payments are live (update `tests/data.test.js` with it).
+- **Not seen in a browser** (extension not connected). Test at 360 / 390 / 768 px.
+- `public/Mobile View/` ships with the build (served publicly). Consider moving the docs out of `public/`.
+
+**Tests**: +34 in `tests/order.test.js` (spec pricing cases, selection rules, hours/after-midnight/DST, store persistence, full UI flow). Total 59 passing; build passes.
 
 ## 2026-11-02 — Session 3: scroll "making of" removed
 
