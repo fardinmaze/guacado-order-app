@@ -35,16 +35,15 @@ const hasTwo = computed(() => props.prices.length > 1)
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
 }
-.row__name { font-weight: 700; font-size: 17.5px; line-height: 1.35; }
+.row__name { font-weight: 700; font-size: 17px; line-height: 1.35; }
 .row__cal { grid-column: 1; font-size: 13px; color: var(--ink-muted); font-weight: 500; }
 .row__price {
   grid-row: 1 / span 3;
   grid-column: 2;
   align-self: center;
-  font-family: var(--f-cond);
-  font-size: 26px;
-  letter-spacing: 0.5px;
-  color: var(--accent-text);
+  font: 900 24px/1 var(--f-display);
+  font-stretch: 80%;
+  color: var(--ink);
   text-align: right;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;

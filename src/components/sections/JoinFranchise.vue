@@ -1,49 +1,45 @@
 <script setup>
-import { ref } from 'vue'
 import { links } from '@/data/site'
-import { useMotion, revealCards } from '@/composables/useMotion'
 import BaseButton from '@/components/ui/BaseButton.vue'
-
-const root = ref(null)
-useMotion(root, () => revealCards())
 </script>
 
 <template>
-  <section id="join" ref="root" class="band band--alt">
+  <section id="join" class="band">
     <div class="wrap duo">
-      <article id="jobs" class="card" data-card>
-        <span class="eyebrow">We are hiring</span>
-        <h3>Join the line</h3>
-        <p>We're looking for great people to grill, build and serve. See current openings and apply in a few clicks.</p>
-        <BaseButton :href="links.jobs">SEE OPEN JOBS</BaseButton>
+      <article id="jobs" class="card">
+        <div>
+          <span class="eyebrow">We are hiring</span>
+          <h2 class="display">Join the line</h2>
+          <p>Grill, build and serve with us. See current openings and apply in a few clicks.</p>
+        </div>
+        <BaseButton :href="links.jobs" variant="outline">See open jobs</BaseButton>
       </article>
-      <article id="franchise" class="card card--lime" data-card>
-        <span class="eyebrow">Franchise opportunities</span>
-        <h3>Open a Guacado</h3>
-        <p>Bring build-your-own Mexican to your neighborhood. Learn what it takes to own and operate a location.</p>
-        <BaseButton :href="links.franchise">FRANCHISE INFO</BaseButton>
+      <article id="franchise" class="card">
+        <div>
+          <span class="eyebrow">Franchise opportunities</span>
+          <h2 class="display">Open a Guacado</h2>
+          <p>Bring build-your-own Mexican to your neighborhood.</p>
+        </div>
+        <BaseButton :href="links.franchise" variant="outline">Franchise info</BaseButton>
       </article>
     </div>
   </section>
 </template>
 
 <style scoped>
-.duo { display: grid; gap: 18px; }
+.duo { display: grid; gap: 14px; }
 @media (min-width: 860px) { .duo { grid-template-columns: 1fr 1fr; } }
 .card {
-  border-radius: var(--r-lg);
-  padding: clamp(28px, 4vw, 44px);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  border: 1px solid var(--line);
-  background: var(--surface-raised);
-  min-width: 0;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding: 24px 26px;
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--line);
 }
-.card--lime { background: var(--lime); color: var(--on-lime); border-color: var(--lime); --btn-primary-bg: var(--ground); --btn-primary-ink: var(--ink); }
-.card--lime .eyebrow { color: var(--on-lime); }
-h3 { font-family: var(--f-display); font-size: clamp(32px, 3.6vw, 46px); line-height: 1; }
-p { max-width: 44ch; }
-.card :deep(.btn) { margin-top: 8px; }
+.card > div { display: grid; gap: 6px; max-width: 40ch; }
+h2 { font-size: clamp(28px, 3vw, 38px); }
+p { color: var(--ink-muted); font-size: 15px; }
 </style>

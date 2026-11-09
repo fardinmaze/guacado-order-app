@@ -1,5 +1,5 @@
 <script setup>
-// One numbered card of the Build-Your-Own flow. `active` = the step in view (lime border).
+// One numbered card of the Build-Your-Own flow. `active` = the step last touched.
 defineProps({
   number: { type: Number, required: true },
   title: { type: String, required: true },
@@ -12,7 +12,7 @@ defineProps({
   <article class="step" :class="{ 'is-active': active }" :data-step="number">
     <div class="step__top">
       <span class="step__n" aria-hidden="true">{{ number }}</span>
-      <h3 class="step__t">{{ title }}</h3>
+      <h3 class="step__t display">{{ title }}</h3>
       <span v-if="note" class="step__note">{{ note }}</span>
     </div>
     <slot />
@@ -22,29 +22,28 @@ defineProps({
 <style scoped>
 .step {
   background: var(--surface-raised);
-  border: 1px solid var(--line);
+  border: 1.5px solid transparent;
   border-radius: var(--r-lg);
-  padding: clamp(22px, 3vw, 34px);
+  padding: clamp(18px, 2.4vw, 28px);
   display: grid;
-  gap: 18px;
-  transition: border-color 0.3s;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s;
 }
-.step.is-active { border-color: rgba(200, 216, 44, 0.6); }
-.step__top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.step.is-active { border-color: var(--guac); }
+.step__top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .step__n {
-  width: 52px;
-  height: 52px;
+  width: 36px;
+  height: 36px;
   flex: none;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-family: var(--f-cond);
-  font-size: 28px;
-  line-height: 1;
-  padding-top: 3px;
-  background: var(--chili);
-  color: var(--on-lime);
+  font: 900 18px/1 var(--f-display);
+  background: var(--ink);
+  color: #fff;
 }
-.step__t { font-family: var(--f-display); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.05; }
-.step__note { margin-left: auto; font-size: 13px; color: var(--ink-muted); font-weight: 500; }
+.step.is-active .step__n { background: var(--guac); }
+.step__t { font-size: clamp(22px, 2.2vw, 28px); }
+.step__note { margin-left: auto; font-size: 13px; color: var(--ink-muted); font-weight: 600; }
 </style>

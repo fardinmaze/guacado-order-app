@@ -1,6 +1,8 @@
 # Architecture
 
-Vue 3 (Composition API, `<script setup>`), Vue Router, Vite, GSAP 3.12.5 + ScrollTrigger. JavaScript only.
+Vue 3 (Composition API, `<script setup>`), Vue Router, Vite, GSAP 3.12.5 (ticket total tween only). JavaScript only.
+
+> **Session 8 (2026-11-09):** the site was redesigned sales-first. Current layout components: layout/PromoBar, SiteHeader, MobileDrawer, MobileOrderBar, SiteFooter, ToastNotice; sections/HeroPromo, CategoryGrid, BuildYourOwn, UpsellBand, CrowdPleasers, LocationsSection, JoinFranchise; ui/MenuTile, MenuItemCard, MenuTabs, MenuRow, LocationCard, OptionChip, HeatIcons, BaseButton, SectionHead, AppLink. Sales data lives in `data/catalog.js`; the mobile order bar state in `composables/useOrderBar.js`. The folder map and motion notes below describe the earlier brand build (git tag `brand-version`) where they differ.
 
 ## Folder map
 

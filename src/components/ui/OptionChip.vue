@@ -1,5 +1,5 @@
 <script setup>
-// Pill toggle. `pressed` drives aria-pressed and the lime selected state.
+// Pill toggle. `pressed` drives aria-pressed and the selected (ink) state.
 defineProps({
   pressed: { type: Boolean, default: false },
 })
@@ -22,13 +22,15 @@ defineEmits(['click'])
   padding: 12px 16px;
   border-radius: var(--r-pill);
   border: 1.5px solid var(--line);
-  background: var(--surface);
+  background: var(--surface-raised);
   color: var(--ink);
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.12s;
 }
-.chip:hover { border-color: var(--ink-muted); }
+.chip:hover { border-color: var(--ink); }
 .chip:active { transform: scale(0.97); }
-.chip[aria-pressed='true'] { background: var(--lime); border-color: var(--lime); color: var(--on-lime); }
-.chip :deep(small) { font: 400 18px/1 var(--f-cond); letter-spacing: 0.5px; opacity: 0.9; }
+.chip[aria-pressed='true'] { background: var(--guac); border-color: var(--guac); color: var(--on-green); }
+/* Chili glyphs turn white on the green selected state. */
+.chip[aria-pressed='true'] :deep(.icons svg) { fill: #fff; }
+.chip :deep(small) { font: 800 15px/1 var(--f-display); font-stretch: 80%; opacity: 0.85; }
 </style>

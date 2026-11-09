@@ -1,28 +1,23 @@
 <script setup>
-import { vMagnetic } from '@/directives/magnetic'
-
-// variant: primary | lime | ghost. Renders RouterLink (to), <a> (href) or <button>.
-// Theming hooks for coloured bands: --btn-ghost-ink, --btn-ghost-line,
-// --btn-primary-bg, --btn-primary-ink.
-const props = defineProps({
+// variant: primary (guac) | dark | outline | light (on dark bands) | lime
+// size: sm | md | lg. Renders RouterLink (to), <a> (href) or <button>.
+defineProps({
   variant: { type: String, default: 'primary' },
+  size: { type: String, default: 'md' },
   to: { type: String, default: '' },
   href: { type: String, default: '' },
-  magnetic: { type: Boolean, default: undefined },
+  block: { type: Boolean, default: false },
 })
-
-// Primary and lime buttons are magnetic by default.
-const isMagnetic = props.magnetic ?? props.variant !== 'ghost'
 </script>
 
 <template>
-  <RouterLink v-if="to" v-magnetic="isMagnetic" :to="to" class="btn" :class="`btn--${variant}`">
+  <RouterLink v-if="to" :to="to" class="btn" :class="[`btn--${variant}`, `btn--${size}`, { 'btn--block': block }]">
     <slot />
   </RouterLink>
-  <a v-else-if="href" v-magnetic="isMagnetic" :href="href" class="btn" :class="`btn--${variant}`">
+  <a v-else-if="href" :href="href" class="btn" :class="[`btn--${variant}`, `btn--${size}`, { 'btn--block': block }]">
     <slot />
   </a>
-  <button v-else v-magnetic="isMagnetic" type="button" class="btn" :class="`btn--${variant}`">
+  <button v-else type="button" class="btn" :class="[`btn--${variant}`, `btn--${size}`, { 'btn--block': block }]">
     <slot />
   </button>
 </template>
@@ -32,32 +27,35 @@ const isMagnetic = props.magnetic ?? props.variant !== 'ghost'
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  font-family: var(--f-cond);
-  font-size: 20px;
-  letter-spacing: 2px;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   line-height: 1;
-  min-height: 48px;
-  padding: 16px 28px 13px;
   border-radius: var(--r-pill);
   border: 2px solid transparent;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.2s, box-shadow 0.25s, border-color 0.2s, color 0.2s;
+  transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
 }
-.btn--primary {
-  background: var(--btn-primary-bg, var(--guac));
-  color: var(--btn-primary-ink, var(--on-green));
-}
-.btn--primary:hover { background: var(--guac-bright); box-shadow: var(--shadow-glow); }
+.btn:active { transform: translateY(1px); }
+.btn--sm { font-size: 14px; min-height: 40px; padding: 0 16px; }
+.btn--md { font-size: 16px; min-height: 48px; padding: 0 24px; }
+.btn--lg { font-size: 19px; min-height: 58px; padding: 0 34px; }
+.btn--block { display: flex; width: 100%; }
+
+.btn--primary { background: var(--guac); color: var(--on-green); }
+.btn--primary:hover { background: var(--guac-dark); }
+.btn--dark { background: var(--ink); color: #fff; }
+.btn--dark:hover { background: #000; }
+.btn--outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: #fff; }
+.btn--light { background: transparent; color: var(--on-night); border-color: rgba(246, 241, 231, 0.6); }
+.btn--light:hover { background: var(--on-night); color: var(--night); border-color: var(--on-night); }
 .btn--lime { background: var(--lime); color: var(--on-lime); }
-.btn--lime:hover { box-shadow: var(--shadow-glow); }
-.btn--ghost {
-  background: transparent;
-  color: var(--btn-ghost-ink, var(--ink));
-  border-color: var(--btn-ghost-line, var(--line));
-}
-.btn--ghost:hover { border-color: var(--btn-ghost-ink, var(--ink)); }
-.btn :deep(svg) { width: 18px; height: 18px; }
+.btn--lime:hover { background: #d8e83c; }
+.btn :deep(svg) { width: 18px; height: 18px; flex: none; }
 </style>

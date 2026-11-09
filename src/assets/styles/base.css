@@ -1,26 +1,20 @@
-/* Global reset, typography roles and layout primitives (BRAND.md §4, §8). */
+/* Global reset, typography roles and layout primitives. */
 *,
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
 
 body {
   margin: 0;
   background: var(--ground);
   color: var(--ink);
-  font: 400 16px/1.56 var(--f-body);
+  font: 400 16px/1.55 var(--f-body);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-/* Fills the iOS notch area so sticky content never shows through. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0 0 auto;
-  height: env(safe-area-inset-top, 0px);
-  z-index: 60;
-  background: var(--ground);
-}
+/* Room for the fixed mobile order bar. */
+@media (max-width: 899px) { body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); } }
 
 a { color: inherit; }
 img { max-width: 100%; display: block; }
@@ -29,7 +23,7 @@ p { margin: 0; }
 button { font: inherit; }
 section { position: relative; }
 
-:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
 
 .wrap {
   max-width: 1280px;
@@ -39,39 +33,40 @@ section { position: relative; }
 }
 @media (min-width: 900px) {
   .wrap {
-    padding-left: max(48px, env(safe-area-inset-left, 0px));
-    padding-right: max(48px, env(safe-area-inset-right, 0px));
+    padding-left: max(40px, env(safe-area-inset-left, 0px));
+    padding-right: max(40px, env(safe-area-inset-right, 0px));
   }
 }
 
-.band { padding-block: clamp(64px, 9vw, 120px); }
+.band { padding-block: clamp(56px, 7vw, 96px); }
 .band--alt { background: var(--surface); }
 
-.eyebrow {
-  font-family: var(--f-cond);
-  font-size: 16px;
-  letter-spacing: 3px;
-  color: var(--accent-text);
-  text-transform: uppercase;
-}
-.script {
-  font-family: var(--f-script);
-  color: var(--lime);
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.1;
-}
-.h-sec {
+/* Heavy condensed uppercase: every headline, price and button label. */
+.display {
   font-family: var(--f-display);
-  font-size: clamp(40px, 6.4vw, 76px);
-  line-height: 0.95;
+  font-weight: 900;
+  font-stretch: 72%;
   text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.005em;
+}
+.h-sec { font-size: clamp(36px, 5.2vw, 64px); }
+.eyebrow {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
 }
 .lead {
-  font-size: clamp(17px, 1.6vw, 19px);
-  line-height: 1.6;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.55;
   color: var(--ink-muted);
   max-width: 56ch;
 }
+.fine { font-size: 12.5px; line-height: 1.5; color: var(--ink-muted); }
 
 .sr-only {
   position: absolute;
@@ -90,11 +85,10 @@ section { position: relative; }
   left: 16px;
   top: -64px;
   z-index: 100;
-  background: var(--lime);
-  color: var(--on-lime);
-  font-family: var(--f-cond);
-  letter-spacing: 2px;
-  padding: 12px 20px 9px;
+  background: var(--guac);
+  color: var(--on-green);
+  font-weight: 700;
+  padding: 12px 20px;
   border-radius: var(--r-pill);
   text-decoration: none;
   transition: top 0.2s;

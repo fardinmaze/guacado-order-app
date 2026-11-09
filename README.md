@@ -1,13 +1,13 @@
 # Guacado Mexican Grill — Website
 
-Dark-theme, GSAP-animated site for Guacado Mexican Grill, built with **Vue 3 + Vite** (JavaScript). Spec: [`BRAND.md`](BRAND.md).
+Sales-first site for Guacado Mexican Grill (Chipotle-style ordering layout), built with **Vue 3 + Vite** (JavaScript). The earlier brand-focused dark build is kept under the git tag `brand-version`. Brand assets and menu data: [`BRAND.md`](BRAND.md).
 
 ## Quick start
 
 ```bash
 npm install
 npm run dev       # http://localhost:5173
-npm test          # vitest (25 tests)
+npm test          # vitest (31 tests)
 npm run build     # outputs dist/
 npm run preview   # serve the build
 ```

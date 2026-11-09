@@ -3,9 +3,11 @@ import { mount, flushPromises } from '@vue/test-utils'
 import { createMemoryHistory } from 'vue-router'
 import App from '@/App.vue'
 import { createAppRouter } from '@/router'
+import { ORDER_URL } from '@/data/site'
+import { menuSections } from '@/data/catalog'
 
 beforeAll(() => {
-  // jsdom has no matchMedia: report reduced motion so GSAP choreography is skipped.
+  // jsdom has no matchMedia: report reduced motion so GSAP tweens are skipped.
   window.matchMedia = (q) => ({
     matches: q.includes('reduce'),
     media: q,
@@ -24,12 +26,26 @@ async function mountAt(path) {
   return { wrapper, router }
 }
 
+const orderLinks = (wrapper) => wrapper.findAll(`a[href="${ORDER_URL}"]`)
+
 describe('App smoke test', () => {
-  it('renders every home section in BRAND.md §8 order', async () => {
+  it('home runs the sales funnel in order', async () => {
     const { wrapper } = await mountAt('/')
     const ids = [...wrapper.element.querySelectorAll('section[id]')].map((s) => s.id)
-    expect(ids).toEqual(['taco', 'build', 'favorites', 'menu', 'kits', 'catering', 'locations', 'join'])
-    expect(wrapper.find('h1').attributes('aria-label')).toBe('Build your own!')
+    expect(ids).toEqual(['menu', 'build', 'locations', 'join'])
+    expect(wrapper.find('h1').text()).toContain('Birria tacos')
+    expect(wrapper.find('#kits').exists()).toBe(true)
+    expect(wrapper.find('#catering').exists()).toBe(true)
+    wrapper.unmount()
+  })
+
+  it('puts an order button in the promo bar, header, hero, mobile bar and every menu tile', async () => {
+    const { wrapper } = await mountAt('/')
+    expect(wrapper.find('.promo a').attributes('href')).toBe(ORDER_URL)
+    expect(wrapper.find('.hdr__order').attributes('href')).toBe(ORDER_URL)
+    expect(wrapper.find('.bar__cta').attributes('href')).toBe(ORDER_URL)
+    expect(wrapper.findAll('.tile .tile__order')).toHaveLength(3)
+    expect(orderLinks(wrapper).length).toBeGreaterThan(10)
     wrapper.unmount()
   })
 
@@ -43,6 +59,16 @@ describe('App smoke test', () => {
     await click('Add fresh guac')
     expect(wrapper.find('.ticket__total strong').text()).toBe('$15.90')
     expect(wrapper.find('.ticket').text()).toContain('Guac')
+    await click('Start over')
+    expect(wrapper.find('.ticket__total strong').text()).toBe('$12.95')
+    wrapper.unmount()
+  })
+
+  it('home shows 6 locations until the guest searches', async () => {
+    const { wrapper } = await mountAt('/')
+    expect(wrapper.findAll('[data-loc]')).toHaveLength(6)
+    await wrapper.find('input[type=search]').setValue('brooklyn')
+    expect(wrapper.findAll('[data-loc]')).toHaveLength(3)
     wrapper.unmount()
   })
 
@@ -56,8 +82,11 @@ describe('App smoke test', () => {
     wrapper.unmount()
   })
 
-  it('menu page carries the food advisory', async () => {
+  it('menu page has a section per tab, an order button per item and the food advisory', async () => {
     const { wrapper } = await mountAt('/menu')
+    menuSections.forEach((s) => expect(wrapper.find(`section#${s.id}`).exists()).toBe(true))
+    // 3 signature + 3 kits + 2 kids
+    expect(wrapper.findAll('.item .item__order')).toHaveLength(8)
     expect(wrapper.text()).toContain('Consuming raw or undercooked meats')
     wrapper.unmount()
   })

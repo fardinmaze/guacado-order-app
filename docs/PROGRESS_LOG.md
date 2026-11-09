@@ -115,3 +115,24 @@ Conclusion: the reference page is the behavioural spec; this project ports it to
 - **Steps (12), timed to the footage:** The bowl, Yellow rice, Black beans, Grilled chicken, Peppers & onions, Sweet corn, Tomato & cheese, Guacamole, Sour cream, Sauce, Cilantro, Ready to eat. Wording only describes what is on screen.
 - **Layout:** the bowl sits low in the frame, so the video is anchored at the bottom with the zoom origin moved down (it would otherwise be cropped), and scroll per step is 52vh (12 steps).
 - Tests updated for the 19.5 s clip (33 passing); `vite build` OK. Not yet checked visually in a browser.
+
+## 2026-11-09 — Session 8: sales-first redesign (Chipotle-style layout)
+
+Owner asked to move from the brand-focused dark site to a layout built for conversion, modelled on chipotle.com. Structure follows Chipotle; colours, logo, copy and prices stay Guacado's. The brand build is preserved in git: **tag `brand-version`** (`git checkout brand-version` to view it).
+
+- **Theme:** light "Order Counter" tokens (white / cream bands, ink text, guac-green CTAs, lime highlights). Photo bands stay black because all owner photos are shot on black. Type: Archivo condensed 900 (headlines, prices, buttons) + Figtree (body). Alfa Slab / Bebas / Lobster removed.
+- **Order button everywhere:** green promo strip, sticky white header (ORDER NOW at every width), hero, each menu tile, each menu item, each location card, footer CTA band, and a fixed **mobile order bar** that shows the running builder total while Build Your Own is on screen (`useOrderBar`).
+- **Home funnel:** HeroPromo (birria tacos with prices) > CategoryGrid "What are you craving?" (3 photo tiles + 6 compact tiles) > Build Your Own > UpsellBand (fresh guac +$1.95, "Make it a meal") > CrowdPleasers (Family Kits + Catering) > Locations (search-first, 6 open locations, "See all") > Jobs/Franchise.
+- **/menu** is now an order menu: sticky category tabs with scroll-spy, item cards with every price and an Order button, the builder, sides/dips/drinks boards, advisory.
+- **/catering**: green catering hero + family kit cards. **/locations**: full finder with Order pickup + Directions per store.
+- **Data:** `src/data/catalog.js` derives every "From $" price and the upsell list from `menu.json` (tested in `tests/catalog.test.js`). Copy says "pickup" only: the live site does not mention delivery.
+- **Builder:** "Copy my order" button (the order.online storefront cannot receive a pre-built order) and "Start over".
+- **Removed** (still in the `brand-version` tag): mascot hero, marquee, scroll-scrubbed bowl video, scroll progress bar, house favourites, magnetic buttons, GSAP scroll choreography. GSAP now only tweens the ticket total.
+- **Checked in a real browser** (headless Chrome via puppeteer-core, 1440px and 390px phone emulation): no horizontal overflow, no console errors.
+- Tests: 31 passing. Build OK.
+
+### Open items
+1. More food photography: only birria tacos, tacos and the bowl have photos; burritos, nachos, quesadillas, kids, sides and drinks show as text tiles until the owner supplies images.
+2. Online ordering is one storefront link; per-location deep links would let "Order pickup" pre-select the store.
+3. Unused media still ships in `public/media` (avatar JPGs, `hero 1/2.jfif`, `bowl-build.mp4` ~13 MB). Move them out of `public/` before deploying.
+4. If there are real promos (rewards, app, delivery partners), add them to the promo strip: none are invented here.

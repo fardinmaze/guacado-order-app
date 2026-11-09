@@ -8,6 +8,7 @@ export const site = {
   name: 'Guacado Mexican Grill',
   email: 'guacadomexicangrill@gmail.com',
   hours: 'Mon – Sun · 10:30am – 3am',
+  hoursShort: '10:30am – 3am',
   hoursOpen: 'Open every day · 10:30am – 3am',
   hoursLong: 'Open every day, 10:30am – 3am',
   hoursProse: 'Open every day from 10:30am to 3am',
@@ -52,33 +53,12 @@ export const footerColumns = [
   },
 ]
 
-export const marqueeWords = [
-  'BIRRIA TACOS', 'BOWLS', 'BURRITOS', 'NACHOS', 'QUESADILLAS',
-  'CRUNCH WRAPS', 'FAMILY KITS', 'CHURROS', 'TRES LECHES', 'FRESH GUAC',
-]
-
 export const occasions = [
   'Birthdays', 'Holiday Parties', 'Corporate', 'Weddings', 'Rehearsal Dinners', 'Game Day',
 ]
 
-// Descriptive copy for the "House favorites" panels (from the live site).
-export const favoriteCopy = {
-  'Birria Tacos': {
-    meta: 'Chicken or Beef',
-    text: 'Slow-braised and griddled, served for dipping. Grab two, three, or the whole pie for the table.',
-    image: 'birria',
-  },
-  Tacos: {
-    meta: 'Soft or Crispy',
-    text: 'Pick one meat and finish them with your choice of toppings.',
-    image: 'tacos',
-  },
-  Tostada: {
-    meta: 'Special',
-    text: 'Choice of one protein with black beans, pico de gallo, cheese, guac, lettuce and sauce.',
-    image: 'tostada',
-  },
-}
+// Header shows these as text links; Order is the button, Jobs/Franchise live in the drawer + footer.
+export const headerNav = ['Menu', 'Catering', 'Locations']
 
 export const stateNames = {
   NY: 'New York',

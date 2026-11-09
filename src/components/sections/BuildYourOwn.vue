@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useBuilder } from '@/composables/useBuilder'
-import { useMotion, revealHeads } from '@/composables/useMotion'
+import { useOrderBar } from '@/composables/useOrderBar'
 import { price } from '@/utils/format'
 import { EXTRA_PROTEIN_PRICE, GUAC_PRICE } from '@/utils/pricing'
 import { guac as guacImg } from '@/assets/illustrations'
@@ -16,39 +16,40 @@ import OrderTicket from '@/components/builder/OrderTicket.vue'
 const b = useBuilder()
 const { state, options } = b
 const root = ref(null)
+const bar = useOrderBar()
 
 const cheapest = Math.min(...options.proteins.map((p) => p.price))
 
-// Scrolling a step into view activates it and advances the ticket progress bar.
-useMotion(root, ({ gsap, ScrollTrigger, root: el }) => {
-  revealHeads(el)
-  el.querySelectorAll('.step').forEach((s) =>
-    ScrollTrigger.create({
-      trigger: s,
-      start: 'top 60%',
-      end: 'bottom 40%',
-      onToggle: (self) => self.isActive && b.markStep(Number(s.dataset.step)),
-    }),
-  )
-  gsap.from(el.querySelectorAll('.step'), {
-    y: 50,
-    opacity: 0.15,
-    duration: 0.8,
-    stagger: 0.12,
-    ease: 'power3.out',
-    scrollTrigger: { trigger: el.querySelector('.steps'), start: 'top 82%' },
-  })
+// While the builder is on screen, the mobile order bar shows this order and its total.
+const inView = ref(false)
+const publish = () => {
+  if (inView.value) bar.set({ label: `${state.base} · ${state.protein}`, total: b.total.value })
+}
+watch([b.total, () => state.base, () => state.protein], publish)
+
+let io
+onMounted(() => {
+  if (typeof IntersectionObserver !== 'function') return
+  io = new IntersectionObserver(([e]) => {
+    inView.value = e.isIntersecting
+    if (inView.value) publish()
+    else bar.clear()
+  }, { rootMargin: '-30% 0px -30% 0px' })
+  io.observe(root.value)
+})
+onBeforeUnmount(() => {
+  io?.disconnect()
+  bar.clear()
 })
 </script>
 
 <template>
-  <section id="build" ref="root" class="band">
+  <section id="build" ref="root" class="band band--alt">
     <div class="wrap">
       <SectionHead
-        class="byo__head"
-        :eyebrow="`Four steps · Starts at $${cheapest.toFixed(2)}`"
-        title="Build your own"
-        lead="Every order starts the same way on our menu board. Tap through the steps and watch your ticket fill in. Prices follow the protein you choose."
+        :eyebrow="`Build your own · From $${cheapest.toFixed(2)}`"
+        title="Make it exactly how you like it"
+        lead="Four quick picks. Your protein sets the price; base, toppings and sauce are on us."
       />
 
       <div class="byo">
@@ -90,18 +91,17 @@ useMotion(root, ({ gsap, ScrollTrigger, root: el }) => {
           </BuilderStep>
         </div>
 
-        <OrderTicket :summary="b.summary.value" :total="b.total.value" :progress="b.progress.value" />
+        <OrderTicket :summary="b.summary.value" :total="b.total.value" :progress="b.progress.value" @reset="b.reset()" />
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.byo__head { margin-bottom: clamp(36px, 5vw, 64px); gap: 14px; }
-.byo { display: grid; gap: 28px; }
-@media (min-width: 960px) { .byo { grid-template-columns: minmax(0, 1fr) 380px; gap: 56px; align-items: start; } }
-.steps { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.byo { display: grid; gap: 20px; }
+@media (min-width: 960px) { .byo { grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start; } }
+.steps { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .extras { display: grid; gap: 10px; }
 @media (min-width: 620px) { .extras { grid-template-columns: 1fr 1fr; } }
 .x2 {
@@ -111,9 +111,8 @@ useMotion(root, ({ gsap, ScrollTrigger, root: el }) => {
   background: var(--chili);
   display: grid;
   place-items: center;
-  font-family: var(--f-cond);
-  font-size: 22px;
-  color: var(--on-lime);
+  font: 900 20px/1 var(--f-display);
+  color: #fff;
   flex: none;
 }
 </style>
