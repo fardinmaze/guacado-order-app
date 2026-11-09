@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_Store
+*.log
+
+# large/personal media, kept local
+public/Video/
+public/*.mp4

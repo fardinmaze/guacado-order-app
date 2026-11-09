@@ -1,0 +1,144 @@
+[
+  {
+    "address": "5119-A Avenue U",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip": "11234"
+  },
+  {
+    "address": "2006 Cropsey Avenue",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip": "11214"
+  },
+  {
+    "address": "508 Clarkson Ave",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip": "11203"
+  },
+  {
+    "address": "1884 3rd Ave",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10029",
+    "soon": true
+  },
+  {
+    "address": "523 W 207th St",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10034"
+  },
+  {
+    "address": "3504 Broadway",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10031"
+  },
+  {
+    "address": "746 Lydig Ave",
+    "city": "Bronx",
+    "state": "NY",
+    "zip": "10462"
+  },
+  {
+    "address": "3429 E Tremont Ave",
+    "city": "Bronx",
+    "state": "NY",
+    "zip": "10465"
+  },
+  {
+    "address": "421 E 149 Street",
+    "city": "Bronx",
+    "state": "NY",
+    "zip": "10455"
+  },
+  {
+    "address": "157-02 Cross Bay Blvd",
+    "city": "Howard Beach",
+    "state": "NY",
+    "zip": "11414"
+  },
+  {
+    "address": "7019 Austin Street",
+    "city": "Forest Hills",
+    "state": "NY",
+    "zip": "11375"
+  },
+  {
+    "address": "95-05 57th Ave",
+    "city": "Corona",
+    "state": "NY",
+    "zip": "11368"
+  },
+  {
+    "address": "1679 Hylan Boulevard",
+    "city": "Staten Island",
+    "state": "NY",
+    "zip": "10305"
+  },
+  {
+    "address": "255 Fulton Avenue",
+    "city": "Hempstead",
+    "state": "NY",
+    "zip": "11550"
+  },
+  {
+    "address": "490 Pearl St",
+    "city": "Buffalo",
+    "state": "NY",
+    "zip": "14202"
+  },
+  {
+    "address": "939 Main Street",
+    "city": "Paterson",
+    "state": "NJ",
+    "zip": "07503"
+  },
+  {
+    "address": "55 Bloomfield Avenue",
+    "city": "Bloomfield",
+    "state": "NJ",
+    "zip": "07003",
+    "soon": true
+  },
+  {
+    "address": "275 Comly Rd",
+    "city": "Lincoln Park",
+    "state": "NJ",
+    "zip": "07035"
+  },
+  {
+    "address": "240 McMechen St.",
+    "city": "Baltimore",
+    "state": "MD",
+    "zip": "21217",
+    "soon": true
+  },
+  {
+    "address": "13600 Baltimore Avenue",
+    "city": "Laurel",
+    "state": "MD",
+    "zip": "20707"
+  },
+  {
+    "address": "1405 E Main St",
+    "city": "Waterbury",
+    "state": "CT",
+    "zip": "06705"
+  },
+  {
+    "address": "410 Semple St",
+    "city": "Pittsburgh",
+    "state": "PA",
+    "zip": "15213",
+    "soon": true
+  },
+  {
+    "address": "12197 Conant Rd",
+    "city": "Hamtramck",
+    "state": "MI",
+    "zip": "48212"
+  }
+]

@@ -1,0 +1,333 @@
+{
+  "buildYourOwn": {
+    "calories": "420–1310 Cal",
+    "bases": [
+      "Bowl",
+      "Burrito",
+      "Nachos",
+      "Quesadilla",
+      "Crunch Wrap",
+      "Salad",
+      "Taco Salad",
+      "Fries"
+    ],
+    "proteins": [
+      {
+        "name": "Grill Chicken",
+        "price": 12.95
+      },
+      {
+        "name": "Honey Chipotle",
+        "price": 13.95
+      },
+      {
+        "name": "Grilled Steak",
+        "price": 13.95
+      },
+      {
+        "name": "Ground Beef",
+        "price": 13.95
+      },
+      {
+        "name": "Grilled Shrimp",
+        "price": 13.95
+      },
+      {
+        "name": "Beef Barbacoa",
+        "price": 13.95
+      },
+      {
+        "name": "Veggie Fajita w/ Guac",
+        "price": 11.95
+      },
+      {
+        "name": "Tofu",
+        "price": 11.95
+      }
+    ],
+    "toppingsNote": "From Our Fresh Selection",
+    "toppings": [
+      "Rice",
+      "Beans",
+      "Pico de Gallo",
+      "Salsa",
+      "Lettuce",
+      "Shredded Cheese",
+      "Sour Cream",
+      "Jalapeños"
+    ],
+    "extras": [
+      {
+        "name": "Add Fresh Guac",
+        "price": 1.95
+      },
+      {
+        "name": "Extra Protein (per serving)",
+        "price": 2.95
+      }
+    ],
+    "sauces": [
+      {
+        "name": "Chipotle Sauce",
+        "heat": 1
+      },
+      {
+        "name": "Mango Sauce",
+        "heat": 0
+      },
+      {
+        "name": "Limon Sauce",
+        "heat": 0
+      },
+      {
+        "name": "Sour Cream Sauce",
+        "heat": 0
+      },
+      {
+        "name": "Guacado Sauce",
+        "heat": 0
+      },
+      {
+        "name": "Smoky Habanero Sauce",
+        "heat": 3
+      }
+    ]
+  },
+  "featured": [
+    {
+      "name": "Birria Tacos",
+      "options": "Chicken or Beef",
+      "calories": "430–1150 Cal",
+      "prices": [
+        {
+          "label": "2pc",
+          "price": 11.95
+        },
+        {
+          "label": "3pc",
+          "price": 15.95
+        },
+        {
+          "label": "Pie",
+          "price": 30.95
+        }
+      ]
+    },
+    {
+      "name": "Tacos",
+      "options": "Soft or Crispy · Pick one meat w/ your choice of toppings",
+      "calories": "390–1240 Cal",
+      "prices": [
+        {
+          "label": "2",
+          "price": 11.95
+        },
+        {
+          "label": "3",
+          "price": 15.95
+        }
+      ]
+    },
+    {
+      "name": "Tostada",
+      "section": "Specials",
+      "calories": "333–690 Cal",
+      "price": 8.95,
+      "description": "Choice of one protein, served w/ black beans, pico de gallo, cheese, guac, lettuce and sauce"
+    }
+  ],
+  "kidsMeal": {
+    "note": "Includes Organic Milk or Water",
+    "items": [
+      {
+        "name": "Kids Create Your Own",
+        "calories": "300–530 Cal",
+        "price": 8.95,
+        "description": "W/ choice of a meat or guac & two toppings, with two soft or crispy tortillas"
+      },
+      {
+        "name": "Kids Cheese Quesadilla",
+        "calories": "310–540 Cal",
+        "price": 8.95
+      }
+    ]
+  },
+  "sides": [
+    {
+      "name": "Chips",
+      "price": 2.95,
+      "calories": "430 Cal"
+    },
+    {
+      "name": "Fries Dipper",
+      "price": 4.95,
+      "calories": "395 Cal"
+    },
+    {
+      "name": "Nacho Cheese Fries",
+      "price": 6.95,
+      "calories": "598 Cal"
+    },
+    {
+      "name": "Tortilla on Side",
+      "price": 0.95
+    },
+    {
+      "name": "Rice and Beans",
+      "price": 4.95,
+      "calories": "160–220 Cal"
+    }
+  ],
+  "dips": {
+    "sizes": [
+      "4oz",
+      "8oz"
+    ],
+    "items": [
+      {
+        "name": "Guacamole",
+        "prices": [
+          3.95,
+          6.95
+        ],
+        "calories": "270–660 Cal"
+      },
+      {
+        "name": "Queso",
+        "prices": [
+          3.95,
+          6.95
+        ],
+        "calories": "456–780 Cal"
+      },
+      {
+        "name": "Salsa",
+        "prices": [
+          2.95,
+          5.45
+        ],
+        "calories": "40–95 Cal"
+      },
+      {
+        "name": "Chips & Guac",
+        "prices": [
+          6.45,
+          8.95
+        ],
+        "calories": "510–770 Cal"
+      },
+      {
+        "name": "Chips & Queso",
+        "prices": [
+          6.45,
+          8.95
+        ],
+        "calories": "520–820 Cal"
+      },
+      {
+        "name": "Chips & Salsa",
+        "prices": [
+          5.45,
+          7.45
+        ],
+        "calories": "435–545 Cal"
+      }
+    ]
+  },
+  "beverages": [
+    {
+      "name": "Bottle Drink",
+      "price": 2.95
+    },
+    {
+      "name": "Water",
+      "price": 1.95
+    },
+    {
+      "name": "Organic Tractor Tea",
+      "price": 4.95
+    },
+    {
+      "name": "Organic Lemonade",
+      "price": 4.95
+    },
+    {
+      "name": "Shake",
+      "price": 4.95,
+      "flavors": [
+        "Vanilla",
+        "Chocolate",
+        "Strawberry",
+        "Oreo"
+      ]
+    }
+  ],
+  "desserts": [
+    {
+      "name": "Churros",
+      "price": 3.95
+    },
+    {
+      "name": "Tres Leches Cake",
+      "price": 4.95
+    },
+    {
+      "name": "Plantains",
+      "price": 3.95
+    }
+  ],
+  "familyKits": {
+    "serves": "Feeds 4–6",
+    "items": [
+      {
+        "name": "Taco Kit",
+        "price": 49.95,
+        "calories": "5900–6626 Cal",
+        "includes": [
+          "12 soft corn tortillas",
+          "Your choice of 2 proteins",
+          "Pico de gallo",
+          "Salsa",
+          "Rice",
+          "Beans",
+          "Lettuce",
+          "Shredded cheese",
+          "Sour cream"
+        ]
+      },
+      {
+        "name": "Nacho Kit",
+        "price": 49.95,
+        "calories": "8912–9798 Cal",
+        "includes": [
+          "Chips",
+          "Your choice of 2 proteins",
+          "2 queso",
+          "2 pico de gallo",
+          "Salsa",
+          "Beans",
+          "Jalapeños",
+          "Sour cream"
+        ]
+      },
+      {
+        "name": "Fajita Kit",
+        "price": 55.95,
+        "calories": "6341–7160 Cal",
+        "includes": [
+          "12 soft corn tortillas",
+          "Your choice of 2 proteins",
+          "Fajita",
+          "Guac",
+          "Pico de gallo",
+          "Salsa",
+          "Rice",
+          "Beans",
+          "Lettuce",
+          "Shredded cheese",
+          "Sour cream"
+        ]
+      }
+    ]
+  }
+}
