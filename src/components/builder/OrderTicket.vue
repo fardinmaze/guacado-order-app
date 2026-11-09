@@ -49,7 +49,7 @@ onBeforeUnmount(() => tween?.kill())
       <h3 class="display">Your order</h3>
       <button type="button" class="reset" @click="$emit('reset')">Start over</button>
     </div>
-    <div class="ticket__bar" aria-hidden="true"><i :style="{ width: progress + '%' }" /></div>
+    <div class="ticket__bar" aria-hidden="true"><i :style="{ transform: `scaleX(${progress / 100})` }" /></div>
     <dl>
       <div><dt>Base</dt><dd>{{ summary.base }}</dd></div>
       <div><dt>Protein</dt><dd>{{ summary.protein }}</dd></div>
@@ -74,7 +74,6 @@ onBeforeUnmount(() => tween?.kill())
   border-radius: var(--r-lg);
   padding: 24px;
   box-shadow: var(--shadow-lift);
-  border-top: 6px solid var(--guac);
   display: grid;
   gap: 16px;
 }
@@ -82,7 +81,7 @@ onBeforeUnmount(() => tween?.kill())
 h3 { font-size: 32px; }
 .reset { background: none; border: 0; padding: 8px 0; color: var(--ink-muted); font-weight: 600; font-size: 13.5px; text-decoration: underline; cursor: pointer; }
 .ticket__bar { height: 6px; border-radius: 3px; background: var(--surface); overflow: hidden; }
-.ticket__bar i { display: block; height: 100%; background: var(--guac); border-radius: 3px; transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.ticket__bar i { display: block; height: 100%; background: var(--guac); border-radius: 3px; transform-origin: left; transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
 dl { margin: 0; display: grid; gap: 10px; }
 dl div { display: grid; grid-template-columns: 82px 1fr; gap: 8px; font-size: 15px; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
 dt { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); padding-top: 2px; }
