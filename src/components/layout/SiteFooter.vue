@@ -21,8 +21,8 @@ const columns = footerColumns.map((col) => ({
 
 <template>
   <footer class="ftr">
-    <div class="ftr__cta">
-      <div class="wrap ftr__cta-in">
+    <div class="wrap">
+      <div class="ftr__cta">
         <h2 class="display">Hungry yet?</h2>
         <p>Skip the line. Order online and pick up at your nearest Guacado.</p>
         <div class="ftr__cta-actions">
@@ -79,9 +79,8 @@ const columns = footerColumns.map((col) => ({
 </template>
 
 <style scoped>
-.ftr { background: var(--night); color: var(--on-night); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); }
-.ftr__cta { background: var(--guac); color: var(--on-green); padding-block: clamp(40px, 6vw, 64px); }
-.ftr__cta-in { display: grid; gap: 14px; justify-items: start; }
+.ftr { background: var(--ground); color: var(--ink); border-top: 1px solid var(--line); padding: clamp(32px, 5vw, 56px) 0 calc(28px + env(safe-area-inset-bottom, 0px)); }
+.ftr__cta { background: var(--guac); color: var(--on-green); border-radius: var(--r-lg); padding: clamp(28px, 5vw, 56px); display: grid; gap: 14px; justify-items: start; }
 .ftr__cta h2 { font-size: clamp(44px, 7vw, 88px); }
 .ftr__cta p { font-size: 18px; max-width: 46ch; }
 .ftr__cta-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
@@ -89,20 +88,20 @@ const columns = footerColumns.map((col) => ({
 @media (min-width: 640px) { .ftr__grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 960px) { .ftr__grid { grid-template-columns: 1.3fr 1fr 1fr 1.2fr; } }
 .ftr__brand img { width: 96px; height: auto; }
-.ftr__brand p { margin-top: 14px; color: var(--on-night-muted); font-size: 14.5px; }
-h3 { margin: 0 0 14px; font-family: var(--f-display); font-weight: 800; font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: var(--lime); }
+.ftr__brand p { margin-top: 14px; color: var(--ink-muted); font-size: 14.5px; }
+h3 { margin: 0 0 14px; font-family: var(--f-display); font-weight: 800; font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: var(--accent-text); }
 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-ul a { display: inline-block; padding: 6px 0; text-decoration: none; color: var(--on-night); font-weight: 500; }
-ul a:hover { color: var(--lime); }
-.muted { color: var(--on-night-muted); font-size: 14.5px; padding-top: 6px; }
+ul a { display: inline-block; padding: 6px 0; text-decoration: none; color: var(--ink); font-weight: 500; }
+ul a:hover { color: var(--accent-text); text-decoration: underline; }
+.muted { color: var(--ink-muted); font-size: 14.5px; padding-top: 6px; }
 .copy {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   min-height: 44px;
-  background: var(--night-raised);
-  border: 1px solid var(--night-line);
-  color: var(--on-night);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
   padding: 8px 12px;
   border-radius: var(--r-sm);
   font: 600 14px var(--f-body);
@@ -113,19 +112,19 @@ ul a:hover { color: var(--lime); }
 }
 .copy svg { width: 15px; height: 15px; flex: none; }
 .social { display: flex; gap: 10px; margin-top: 16px; }
-.social a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--night-line); color: var(--on-night); }
-.social a:hover { border-color: var(--lime); color: var(--lime); }
+.social a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); color: var(--ink); }
+.social a:hover { border-color: var(--guac); color: var(--guac); }
 .social svg { width: 18px; height: 18px; fill: currentColor; }
 .ftr__base {
   margin-top: 48px;
   padding-top: 20px;
-  border-top: 1px solid var(--night-line);
+  border-top: 1px solid var(--line);
   display: flex;
   flex-wrap: wrap;
   gap: 12px 24px;
   justify-content: space-between;
   font-size: 13px;
-  color: var(--on-night-muted);
+  color: var(--ink-muted);
 }
-.ftr__base a { color: var(--on-night-muted); }
+.ftr__base a { color: var(--ink-muted); }
 </style>

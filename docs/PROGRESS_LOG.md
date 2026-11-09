@@ -136,3 +136,16 @@ Owner asked to move from the brand-focused dark site to a layout built for conve
 2. Online ordering is one storefront link; per-location deep links would let "Order pickup" pre-select the store.
 3. Unused media still ships in `public/media` (avatar JPGs, `hero 1/2.jfif`, `bowl-build.mp4` ~13 MB). Move them out of `public/` before deploying.
 4. If there are real promos (rewards, app, delivery partners), add them to the promo strip: none are invented here.
+
+## 2026-11-09 — Session 9: white background + bowl video
+
+- **White page like chipotle.com:** every band is white (`.band--alt` is now white with a hairline). Food photos and video sit in rounded black `.media-card`s. Footer is white; the "Hungry yet?" CTA and the catering hero are green rounded cards.
+- **Hero** now leads with the bowl-build video ("Your bowl. Your way.", from $11.95) with a birria tacos offer strip under it.
+- **The owner's clip `bowl-build.mp4` is used four ways** (cuts made with ffmpeg, see `videos` in `src/data/catalog.js`):
+  1. `bowl-loop.mp4` (0.6 MB): hero media card, autoplay muted loop while on screen.
+  2. `bowl-loop.mp4`: Burrito Bowl menu tile plays on hover (in view on touch screens).
+  3. `bowl-steps.mp4` (2.9 MB, every frame a keyframe): **BowlPreview** in the order ticket. The bowl plays forward as the guest picks: base 2.8 s, protein 7.4 s, toppings 11 s (guac 13.2 s), sauce 19.3 s; going back jumps instantly. Caption names the pick. Footage is illustrative (always a bowl).
+  4. `guac-loop.mp4` (0.3 MB, 10.8–14.4 s): "Fresh guac on anything" upsell with a +$1.95 badge.
+- `LoopVideo.vue` attaches the source only near the viewport, pauses off screen, shows the poster for reduced-motion guests.
+- Checked in Chrome (puppeteer): each video loads and plays, preview times match each step, no console errors, no horizontal overflow at 390px.
+- `public/media/bowl-build.mp4` (13.7 MB) is now only the source file; move it out of `public/` before deploying.

@@ -44,6 +44,7 @@ onBeforeUnmount(() => tween?.kill())
 
 <template>
   <aside class="ticket" aria-label="Your order">
+    <slot name="media" />
     <div class="ticket__head">
       <h3 class="display">Your order</h3>
       <button type="button" class="reset" @click="$emit('reset')">Start over</button>

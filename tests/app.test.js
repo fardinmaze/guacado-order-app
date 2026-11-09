@@ -33,7 +33,10 @@ describe('App smoke test', () => {
     const { wrapper } = await mountAt('/')
     const ids = [...wrapper.element.querySelectorAll('section[id]')].map((s) => s.id)
     expect(ids).toEqual(['menu', 'build', 'locations', 'join'])
-    expect(wrapper.find('h1').text()).toContain('Birria tacos')
+    expect(wrapper.find('h1').text()).toContain('Your bowl')
+    expect(wrapper.find('.birria').text()).toContain('Birria tacos')
+    // Bowl clip: hero loop, Burrito Bowl tile, guac upsell, builder preview
+    expect(wrapper.findAll('video')).toHaveLength(4)
     expect(wrapper.find('#kits').exists()).toBe(true)
     expect(wrapper.find('#catering').exists()).toBe(true)
     wrapper.unmount()

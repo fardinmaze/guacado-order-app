@@ -7,6 +7,17 @@ export const photos = {
   birria: '/media/hero-1.jpg',
   tacos: '/media/hero-2.jpg',
   bowl: '/media/bowl-poster.jpg',
+  guac: '/media/guac-poster.jpg',
+}
+
+// Cuts of the owner's bowl-build clip (public/media/bowl-build.mp4, 19.5 s, shot on black).
+// loop: full build, light encode for the hero and the Burrito Bowl tile.
+// steps: every frame a keyframe so the builder preview can seek instantly.
+// guac: 3.6 s cut (10.8–14.4 s) of the guac scoop landing, for the upsell band.
+export const videos = {
+  loop: '/media/bowl-loop.mp4',
+  steps: '/media/bowl-steps.mp4',
+  guac: '/media/guac-loop.mp4',
 }
 
 const low = (xs) => Math.min(...xs)
@@ -48,6 +59,7 @@ export const featuredTiles = [
     calories: byo.calories,
     from: fromPrices.byo,
     image: photos.bowl,
+    video: videos.loop,
     badge: 'Build your own',
     to: '/menu#build',
   },

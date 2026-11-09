@@ -22,12 +22,11 @@ defineProps({
 <style scoped>
 .step {
   background: var(--surface-raised);
-  border: 1.5px solid transparent;
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   padding: clamp(18px, 2.4vw, 28px);
   display: grid;
   gap: 16px;
-  box-shadow: var(--shadow-card);
   transition: border-color 0.2s;
 }
 .step.is-active { border-color: var(--guac); }

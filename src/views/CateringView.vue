@@ -8,8 +8,8 @@ const kits = menu.familyKits
 </script>
 
 <template>
-  <section id="catering" class="cater">
-    <div class="wrap cater__in">
+  <section id="catering" class="cater-page">
+    <div class="wrap"><div class="cater cater__in">
       <div class="cater__copy">
         <span class="eyebrow">Catering</span>
         <h1 class="display">Let us cater your next event</h1>
@@ -25,7 +25,7 @@ const kits = menu.familyKits
       <ul class="occ" aria-label="Occasions we cater">
         <li v-for="o in occasions" :key="o">{{ o }}</li>
       </ul>
-    </div>
+    </div></div>
   </section>
 
   <section id="kits" class="band band--alt">
@@ -47,7 +47,8 @@ const kits = menu.familyKits
 </template>
 
 <style scoped>
-.cater { background: var(--guac); color: var(--on-green); padding-block: clamp(48px, 7vw, 96px); }
+.cater-page { padding-block: clamp(20px, 3vw, 40px) clamp(40px, 5vw, 64px); }
+.cater { background: var(--guac); color: var(--on-green); border-radius: var(--r-lg); padding: clamp(28px, 6vw, 72px); }
 .cater__in { display: grid; gap: 32px; align-items: center; }
 @media (min-width: 900px) { .cater__in { grid-template-columns: 1.3fr 0.7fr; } }
 .cater__copy { display: grid; gap: 18px; justify-items: start; }

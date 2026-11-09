@@ -1,18 +1,21 @@
 <script setup>
 import { site } from '@/data/site'
 import { money } from '@/utils/format'
+import LoopVideo from './LoopVideo.vue'
 
 // Photo card for the menu grid. The whole card links to the item on the menu page
 // (stretched link on the name); the Order button sits above it and goes to checkout.
+// A tile with a `video` plays it while hovered (in view on touch screens).
 defineProps({
-  tile: { type: Object, required: true }, // { name, blurb, calories?, from, image, badge?, to }
+  tile: { type: Object, required: true }, // { name, blurb, calories?, from, image, video?, badge?, to }
 })
 </script>
 
 <template>
   <article class="tile">
     <div class="tile__img">
-      <img :src="tile.image" :alt="tile.name" width="1400" height="1046" loading="lazy" />
+      <LoopVideo v-if="tile.video" :src="tile.video" :poster="tile.image" mode="hover" hover-closest=".tile" />
+      <img v-else :src="tile.image" :alt="tile.name" width="1400" height="1046" loading="lazy" />
       <span v-if="tile.badge" class="tile__badge">{{ tile.badge }}</span>
     </div>
     <div class="tile__body">
@@ -35,13 +38,13 @@ defineProps({
   background: var(--surface-raised);
   border-radius: var(--r-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1.5px solid var(--line);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
 }
-.tile:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
-.tile:hover img { transform: scale(1.04); }
+.tile:hover { box-shadow: var(--shadow-lift); border-color: transparent; transform: translateY(-3px); }
+.tile:hover img, .tile:hover video { transform: scale(1.04); }
 .tile__img { position: relative; background: #000; aspect-ratio: 4 / 3; overflow: hidden; }
-.tile__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.tile__img img, .tile__img video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .tile__badge {
   position: absolute;
   top: 14px;

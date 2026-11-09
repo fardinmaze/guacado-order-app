@@ -1,17 +1,19 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useBuilder } from '@/composables/useBuilder'
 import { useOrderBar } from '@/composables/useOrderBar'
 import { price } from '@/utils/format'
 import { EXTRA_PROTEIN_PRICE, GUAC_PRICE } from '@/utils/pricing'
 import { guac as guacImg } from '@/assets/illustrations'
 import menu from '@/data/menu.json'
+import { photos, videos } from '@/data/catalog'
 import SectionHead from '@/components/ui/SectionHead.vue'
 import OptionChip from '@/components/ui/OptionChip.vue'
 import HeatIcons from '@/components/ui/HeatIcons.vue'
 import BuilderStep from '@/components/builder/BuilderStep.vue'
 import ExtraToggle from '@/components/builder/ExtraToggle.vue'
 import OrderTicket from '@/components/builder/OrderTicket.vue'
+import BowlPreview from '@/components/builder/BowlPreview.vue'
 
 const b = useBuilder()
 const { state, options } = b
@@ -19,6 +21,15 @@ const root = ref(null)
 const bar = useOrderBar()
 
 const cheapest = Math.min(...options.proteins.map((p) => p.price))
+
+// Where the bowl-build clip should be for the step the guest is on (seconds into the
+// 19.5 s clip). The footage is illustrative: it shows a bowl, whatever base is picked.
+const preview = computed(() => {
+  if (state.step === 1) return { at: 2.8, caption: `${state.base} base` }
+  if (state.step === 2) return { at: 7.4, caption: state.protein }
+  if (state.step === 3) return state.guac ? { at: 13.2, caption: 'Fresh guac on top' } : { at: 11, caption: 'Toppings on' }
+  return { at: 19.3, caption: state.sauce ? `${state.sauce} sauce · ready` : 'Ready to order' }
+})
 
 // While the builder is on screen, the mobile order bar shows this order and its total.
 const inView = ref(false)
@@ -91,7 +102,11 @@ onBeforeUnmount(() => {
           </BuilderStep>
         </div>
 
-        <OrderTicket :summary="b.summary.value" :total="b.total.value" :progress="b.progress.value" @reset="b.reset()" />
+        <OrderTicket :summary="b.summary.value" :total="b.total.value" :progress="b.progress.value" @reset="b.reset()">
+          <template #media>
+            <BowlPreview :src="videos.steps" :poster="photos.bowl" :target="preview.at" :caption="preview.caption" />
+          </template>
+        </OrderTicket>
       </div>
     </div>
   </section>

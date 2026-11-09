@@ -1,15 +1,15 @@
-/* Design tokens: "Order Counter" — light, sales-first theme (Chipotle-style structure,
-   Guacado colours). Dark "night" tokens are kept for the photo bands, whose food
-   photography is shot on black. */
+/* Design tokens: "Order Counter" — white, sales-first theme (Chipotle-style structure,
+   Guacado colours). Food photos and video are shot on black, so they sit in rounded
+   black media cards on the white page. */
 :root {
   color-scheme: light;
 
   /* Surfaces */
   --ground: #ffffff;
-  --surface: #f6f1e7; /* warm cream band */
+  --surface: #f5f3ee; /* light warm grey: cards, chips, inputs */
   --surface-raised: #ffffff;
-  --line: #e4dccd;
-  --night: #0a0f0c; /* photo bands, footer */
+  --line: #e6e2d8;
+  --night: #0a0f0c; /* media cards */
   --night-raised: #151d18;
   --night-line: #2a352e;
 

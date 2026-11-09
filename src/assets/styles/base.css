@@ -39,7 +39,11 @@ section { position: relative; }
 }
 
 .band { padding-block: clamp(56px, 7vw, 96px); }
-.band--alt { background: var(--surface); }
+/* The page stays white (Chipotle-style); consecutive bands are separated by a hairline. */
+.band--alt { background: var(--ground); border-top: 1px solid var(--line); }
+
+/* Rounded black card that frames food photography and video on the white page. */
+.media-card { position: relative; overflow: hidden; border-radius: var(--r-lg); background: #000; isolation: isolate; }
 
 /* Heavy condensed uppercase: every headline, price and button label. */
 .display {
