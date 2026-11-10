@@ -6,4 +6,3 @@ dist
 # large/personal media, kept local
 public/Video/
 public/*.mp4
-public/Mobile View/*.zip

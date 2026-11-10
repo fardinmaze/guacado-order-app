@@ -11,35 +11,31 @@ Newest entries last. Update this file at the end of every working session.
 | Component library (ui / layout / builder / sections) | Done |
 | Home page (all 9 sections, BRAND.md §8) | Done |
 | `/menu`, `/catering`, `/locations` routes | Done |
-| Unit + smoke tests (59) | Passing |
-| Mobile ordering flow `/order` (front end) | Done; payment/backend not built |
+| Unit + smoke tests (25) | Passing |
 | Production build | Passing |
 | **Visual / browser QA of GSAP motion** | **Not done** (see Open items) |
 | Vector logo, real food photos | Blocked on owner |
 
 ---
 
-## 2026-11-02 — Session 4: mobile ordering flow (`/order`)
+## 2026-11-02 — Session 6: hero reimagined with the mascot
 
-Built from the docs the owner dropped in `public/Mobile View/` (`CLAUDE.md`, `01-ANALYSIS` … `04-BUILD-PLAN`, seed JSON). Those docs describe a Next.js + Postgres + Stripe app; this repo is Vue + JavaScript with no backend, so only the **phone-first front end** was built. Owner chose this scope.
+- Hero art is now the Guacado avatar (`public/Guacado_Avatar.jfif` -> `public/media/avatar.jpg`) centred, with the two food photos (`hero-1/2.jpg`) around him where the cartoon illustrations used to be. Cartoon avocado disc and illustrations removed from the hero.
+- `components/ui/HeroAvatar.vue`: eyes and head follow the cursor (finger on touch); after 3.5 s without a pointer he glances around by himself; reduced motion = looks straight ahead. The painted irises are hidden by a patch and a moving iris/pupil is drawn in SVG; geometry in `data/avatarEyes.js` (original 1792x2400 coordinates). Placement was checked with an offline render of the same geometry, not in a browser.
+- Black backdrops of the avatar and photos are removed with `mix-blend-mode: screen` (on the outer wrapper, so the blend reaches the page).
+- **Heart eyes:** hovering or focusing a Menu / Order link or button (any, via event delegation, `isLoveTarget`) swaps his eyes for the hearts from `Guacado Avatar 2` (`media/avatar-love.jpg`, clipped to each eye by `HEARTS` in `data/avatarEyes.js`); they pop in and beat. Works with reduced motion (no beat).
 
-**Built (front end, all in `src/order/`)**
-- LOC-01/03/04: location picker (search by street/city/ZIP, grouped by state, open/closed in the store's own time zone, coming-soon stores listed but not selectable, chosen store remembered).
-- MENU-01…07, 09, 10, 11: menu home (Build Your Own hero, category cards with "From $X", every item with price + calories, one-tap add for simple items), 5-step builder (`?step=` in the URL so back works), Light/Regular/Extra/On-the-side levels, +$1.95 guac, Extra protein +$2.95 (charged once), heat labels, "name this meal", fixed-item pages (birria, tacos, dips, kids, kits needing exactly 2 proteins), food advisory.
-- MENU-05: sticky bottom bar with the live total in a polite live region.
-- CART-01/02/04/05/07 (UI): bag sheet (edit, duplicate, remove, qty), bag persisted to `localStorage`, checkout page with ASAP/scheduled slots, guest details validation, tip chips, summary. Slots are computed per store time zone and are DST-safe.
-- Mobile specifics: 44 px+ targets, 16 px inputs (no iOS zoom), safe-area padding, bottom action bar, full-screen bag sheet, no horizontal page scroll by design (category strip scrolls inside itself).
+## 2026-11-02 — Session 5: scroll-scrubbed taco video (`#taco`)
 
-**Deliberately not built / open**
-- **Payment, order creation, tracking, accounts, kitchen dashboard, SMS/email** need a server (Stripe, DB). The checkout button is disabled and says so; DoorDash link-out is shown.
-- **Tax**: store `taxRate` is `null` in the seed ("OWNER TO CONFIRM"), so tax shows "Confirmed at your restaurant" and the total says "+ tax". Nothing invented.
-- LOC-02 "use my location": the seed has no coordinates.
-- Sold-out handling (MENU-08), saved meals/reorder (ACC), capacity-limited slots: need server data.
-- **Entry point**: the main site's Order buttons still go to the live DoorDash URL (BRAND.md contract, and payment is off). `/order` is reachable by URL only. Switching them is a one-line change in `src/data/site.js` once payments are live (update `tests/data.test.js` with it).
-- **Not seen in a browser** (extension not connected). Test at 360 / 390 / 768 px.
-- `public/Mobile View/` ships with the build (served publicly). Consider moving the docs out of `public/`.
+Reference approach taken from the Mojito project (scroll drives a video's `currentTime`, clip encoded with every frame a keyframe). New section right after the ticker, centred, `TacoScroll.vue` + `data/tacoScroll.js`.
 
-**Tests**: +34 in `tests/order.test.js` (spec pricing cases, selection rules, hours/after-midnight/DST, store persistence, full UI flow). Total 59 passing; build passes.
+- **Footage:** owner's `public/Video/gemini_generated_video_60ff5ac9.mp4` (taco built on black: shell, chicken, lettuce, tomato, onion/cilantro, cheese, sauce, folds). Re-encoded to `public/media/taco-build.mp4` (1280x720, no audio, `-g 1, crf 18`) + `taco-poster.jpg` (last frame). The original stays in `public/Video/` (git-ignored).
+- **Black background:** the clip has no alpha (MP4 cannot), so `mix-blend-mode: screen` plus a soft mask lets the black melt into the page ground.
+- **Steps** (side rail + caption) are timed in `data/tacoScroll.js` (`at` = second). Wording describes the footage, not the menu.
+- **No motion / no JS:** normal-height section showing the finished taco and the full step list.
+- Not yet seen in a browser. Check pacing (`55vh` per step), phone layout, and blend on the real background.
+- Re-encode command: `ffmpeg -i in.mp4 -an -c:v libx264 -preset slow -crf 18 -g 1 -pix_fmt yuv420p -movflags +faststart out.mp4`
+- **Rework (full-window):** the stage now fills the screen (video zoomed, `screen`-blended); giant step words sit behind the food and fade/rise in and out per step; sticker tags and a note sit in front; "Folded & ready" adds a READY stamp, sparkle burst, zoom and CTA buttons. The last 10% of scroll holds the final frame so the finale can play (`PLAY_SHARE`). Not yet seen in a browser.
 
 ## 2026-11-02 — Session 3: scroll "making of" removed
 
@@ -112,3 +108,44 @@ Conclusion: the reference page is the behavioural spec; this project ports it to
 6. Franchise page, once copy exists.
 7. Optional: ESLint + Prettier, CI running `npm test && npm run build`, `git init` (the folder is not yet a repository).
 8. Optional features: persist the builder selection, "copy my order" summary, light theme toggle (tokens already exist).
+
+## Session 7 - New scroll footage: burrito bowl (client video 3)
+
+- **Footage:** client's `public/Scroll Animation_Video 3.mp4` (19.5 s, 1280x720: an empty bowl built up layer by layer, then finished). Re-encoded to `public/media/bowl-build.mp4` (no audio, `-g 1`, crf 20, all keyframes so seeking is instant) + `bowl-poster.jpg` (last frame). The original stays in `public/` (git-ignored via `public/*.mp4`). The older taco clip is retired.
+- **Steps (12), timed to the footage:** The bowl, Yellow rice, Black beans, Grilled chicken, Peppers & onions, Sweet corn, Tomato & cheese, Guacamole, Sour cream, Sauce, Cilantro, Ready to eat. Wording only describes what is on screen.
+- **Layout:** the bowl sits low in the frame, so the video is anchored at the bottom with the zoom origin moved down (it would otherwise be cropped), and scroll per step is 52vh (12 steps).
+- Tests updated for the 19.5 s clip (33 passing); `vite build` OK. Not yet checked visually in a browser.
+
+## 2026-11-09 — Session 8: sales-first redesign (Chipotle-style layout)
+
+Owner asked to move from the brand-focused dark site to a layout built for conversion, modelled on chipotle.com. Structure follows Chipotle; colours, logo, copy and prices stay Guacado's. The brand build is preserved in git: **tag `brand-version`** (`git checkout brand-version` to view it).
+
+- **Theme:** light "Order Counter" tokens (white / cream bands, ink text, guac-green CTAs, lime highlights). Photo bands stay black because all owner photos are shot on black. Type: Archivo condensed 900 (headlines, prices, buttons) + Figtree (body). Alfa Slab / Bebas / Lobster removed.
+- **Order button everywhere:** green promo strip, sticky white header (ORDER NOW at every width), hero, each menu tile, each menu item, each location card, footer CTA band, and a fixed **mobile order bar** that shows the running builder total while Build Your Own is on screen (`useOrderBar`).
+- **Home funnel:** HeroPromo (birria tacos with prices) > CategoryGrid "What are you craving?" (3 photo tiles + 6 compact tiles) > Build Your Own > UpsellBand (fresh guac +$1.95, "Make it a meal") > CrowdPleasers (Family Kits + Catering) > Locations (search-first, 6 open locations, "See all") > Jobs/Franchise.
+- **/menu** is now an order menu: sticky category tabs with scroll-spy, item cards with every price and an Order button, the builder, sides/dips/drinks boards, advisory.
+- **/catering**: green catering hero + family kit cards. **/locations**: full finder with Order pickup + Directions per store.
+- **Data:** `src/data/catalog.js` derives every "From $" price and the upsell list from `menu.json` (tested in `tests/catalog.test.js`). Copy says "pickup" only: the live site does not mention delivery.
+- **Builder:** "Copy my order" button (the order.online storefront cannot receive a pre-built order) and "Start over".
+- **Removed** (still in the `brand-version` tag): mascot hero, marquee, scroll-scrubbed bowl video, scroll progress bar, house favourites, magnetic buttons, GSAP scroll choreography. GSAP now only tweens the ticket total.
+- **Checked in a real browser** (headless Chrome via puppeteer-core, 1440px and 390px phone emulation): no horizontal overflow, no console errors.
+- Tests: 31 passing. Build OK.
+
+### Open items
+1. More food photography: only birria tacos, tacos and the bowl have photos; burritos, nachos, quesadillas, kids, sides and drinks show as text tiles until the owner supplies images.
+2. Online ordering is one storefront link; per-location deep links would let "Order pickup" pre-select the store.
+3. Unused media still ships in `public/media` (avatar JPGs, `hero 1/2.jfif`, `bowl-build.mp4` ~13 MB). Move them out of `public/` before deploying.
+4. If there are real promos (rewards, app, delivery partners), add them to the promo strip: none are invented here.
+
+## 2026-11-09 — Session 9: white background + bowl video
+
+- **White page like chipotle.com:** every band is white (`.band--alt` is now white with a hairline). Food photos and video sit in rounded black `.media-card`s. Footer is white; the "Hungry yet?" CTA and the catering hero are green rounded cards.
+- **Hero** now leads with the bowl-build video ("Your bowl. Your way.", from $11.95) with a birria tacos offer strip under it.
+- **The owner's clip `bowl-build.mp4` is used four ways** (cuts made with ffmpeg, see `videos` in `src/data/catalog.js`):
+  1. `bowl-loop.mp4` (0.6 MB): hero media card, autoplay muted loop while on screen.
+  2. `bowl-loop.mp4`: Burrito Bowl menu tile plays on hover (in view on touch screens).
+  3. `bowl-steps.mp4` (2.9 MB, every frame a keyframe): **BowlPreview** in the order ticket. The bowl plays forward as the guest picks: base 2.8 s, protein 7.4 s, toppings 11 s (guac 13.2 s), sauce 19.3 s; going back jumps instantly. Caption names the pick. Footage is illustrative (always a bowl).
+  4. `guac-loop.mp4` (0.3 MB, 10.8–14.4 s): "Fresh guac on anything" upsell with a +$1.95 badge.
+- `LoopVideo.vue` attaches the source only near the viewport, pauses off screen, shows the poster for reduced-motion guests.
+- Checked in Chrome (puppeteer): each video loads and plays, preview times match each step, no console errors, no horizontal overflow at 390px.
+- `public/media/bowl-build.mp4` (13.7 MB) is now only the source file; move it out of `public/` before deploying.

@@ -1,18 +1,20 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { nav, site } from '@/data/site'
+import { headerNav, nav, site } from '@/data/site'
 import { useScrolled } from '@/composables/useScrolled'
-import logo from '@/assets/logos/guacado-wordmark-reverse.png'
+import logo from '@/assets/logos/guacado-wordmark.png'
 import AppLink from '@/components/ui/AppLink.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import MobileDrawer from './MobileDrawer.vue'
 
-// Sticky header: transparent at the top, blurred bar once scrolled > 10px.
-const scrolled = useScrolled(10)
+// Sticky white bar. The ORDER button is visible at every width: it is the page's job.
+const scrolled = useScrolled(40)
 const open = ref(false)
 const burger = ref(null)
 const route = useRoute()
+
+const links = headerNav.map((label) => nav.find((n) => n.label === label))
 
 function close() {
   open.value = false
@@ -25,15 +27,6 @@ watch(() => route.fullPath, () => (open.value = false))
 <template>
   <header id="top" class="hdr" :class="{ 'is-stuck': scrolled }">
     <div class="wrap hdr__in">
-      <RouterLink class="hdr__logo" to="/" aria-label="Guacado Mexican Grill home">
-        <img :src="logo" alt="Guacado Mexican Grill" width="196" height="47" />
-      </RouterLink>
-      <nav class="nav" aria-label="Main">
-        <AppLink v-for="item in nav" :key="item.label" :to="item.to" :href="item.href">
-          {{ item.label.toUpperCase() }}
-        </AppLink>
-      </nav>
-      <BaseButton class="hdr__cta" :href="site.orderUrl">ORDER ONLINE</BaseButton>
       <button
         ref="burger"
         class="burger"
@@ -43,8 +36,24 @@ watch(() => route.fullPath, () => (open.value = false))
         :aria-expanded="open"
         @click="open = true"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
       </button>
+
+      <RouterLink class="hdr__logo" to="/" aria-label="Guacado Mexican Grill home">
+        <img :src="logo" alt="Guacado Mexican Grill" width="168" height="40" />
+      </RouterLink>
+
+      <nav class="nav" aria-label="Main">
+        <AppLink v-for="item in links" :key="item.label" :to="item.to" :href="item.href">{{ item.label }}</AppLink>
+      </nav>
+
+      <div class="hdr__actions">
+        <RouterLink to="/locations" class="find">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></svg>
+          <span>Find a location</span>
+        </RouterLink>
+        <BaseButton :href="site.orderUrl" class="hdr__order">Order now</BaseButton>
+      </div>
     </div>
     <MobileDrawer :open="open" @close="close" />
   </header>
@@ -53,61 +62,61 @@ watch(() => route.fullPath, () => (open.value = false))
 <style scoped>
 .hdr {
   position: sticky;
-  top: env(safe-area-inset-top, 0px);
+  top: 0;
   z-index: 50;
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s, border-color 0.3s;
+  background: var(--ground);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow 0.2s;
 }
-.hdr.is-stuck {
-  background: rgba(10, 18, 14, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-color: var(--line);
-}
-.hdr__in { display: flex; align-items: center; gap: 24px; min-height: 76px; }
-.hdr__logo img { width: clamp(150px, 16vw, 196px); height: auto; }
-.nav { display: none; gap: 4px; margin-left: auto; }
+.hdr.is-stuck { box-shadow: 0 6px 20px -14px rgba(20, 35, 27, 0.45); }
+.hdr__in { display: flex; align-items: center; gap: 12px; min-height: var(--header-h); }
+.hdr__logo img { width: clamp(124px, 14vw, 168px); height: auto; }
+.nav { display: none; gap: 4px; margin-left: 20px; }
 .nav a {
-  position: relative;
-  font-family: var(--f-cond);
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: var(--r-pill);
+  color: var(--ink);
+  transition: background 0.15s;
+}
+.nav a:hover { background: var(--surface); }
+.nav a.router-link-active { box-shadow: inset 0 -3px 0 var(--guac); border-radius: 0; }
+.hdr__actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.find {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14.5px;
   text-decoration: none;
   padding: 10px 12px;
-  border-radius: var(--r-sm);
-  color: var(--ink);
+  border-radius: var(--r-pill);
 }
-.nav a::after {
-  content: '';
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 6px;
-  height: 2px;
-  background: var(--lime);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s;
-}
-.nav a:hover::after,
-.nav a.router-link-active::after { transform: scaleX(1); }
-.hdr__cta { display: none; }
+.find:hover { background: var(--surface); }
+.find svg { width: 20px; height: 20px; color: var(--guac); }
 .burger {
-  margin-left: auto;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  margin-left: -8px;
   border-radius: 50%;
-  border: 1.5px solid var(--line);
-  background: var(--surface);
+  border: 0;
+  background: transparent;
   color: var(--ink);
   display: grid;
   place-items: center;
   cursor: pointer;
 }
-.burger svg { width: 22px; height: 22px; }
-@media (min-width: 1080px) {
-  .nav { display: flex; }
-  .hdr__cta { display: inline-flex; }
+.burger:hover { background: var(--surface); }
+.burger svg { width: 24px; height: 24px; }
+@media (max-width: 420px) { .hdr__order { min-height: 42px; padding: 0 16px; font-size: 15px; } }
+@media (min-width: 1000px) {
+  .nav, .find { display: flex; }
   .burger { display: none; }
 }
 </style>

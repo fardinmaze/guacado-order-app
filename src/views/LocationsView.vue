@@ -4,6 +4,6 @@ import JoinFranchise from '@/components/sections/JoinFranchise.vue'
 </script>
 
 <template>
-  <LocationsSection />
+  <LocationsSection heading-tag="h1" />
   <JoinFranchise />
 </template>

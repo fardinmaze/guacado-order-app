@@ -1,78 +1,58 @@
-/* Design tokens: BRAND.md §3 ("Night Grill"). Dark by default. */
+/* Design tokens: "Order Counter" — white, sales-first theme (Chipotle-style structure,
+   Guacado colours). Food photos and video are shot on black, so they sit in rounded
+   black media cards on the white page. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Surfaces */
-  --ground: #0a120e;
-  --surface: #111d17;
-  --surface-raised: #182a21;
-  --line: #24382d;
+  --ground: #ffffff;
+  --surface: #f5f3ee; /* light warm grey: cards, chips, inputs */
+  --surface-raised: #ffffff;
+  --line: #e6e2d8;
+  --night: #0a0f0c; /* media cards */
+  --night-raised: #151d18;
+  --night-line: #2a352e;
 
   /* Text */
-  --ink: #f6f1e7;
-  --ink-muted: #a7b5ab;
-  --accent-text: #c8d82c;
+  --ink: #14231b;
+  --ink-muted: #5a665e;
+  --on-night: #f6f1e7;
+  --on-night-muted: #b4beb6;
+  --accent-text: #006d44;
 
   /* Brand fills */
   --guac: #006d44;
-  --guac-bright: #0b8a55;
+  --guac-dark: #00532f;
   --lime: #c8d82c;
   --leaf: #a2ca49;
   --pit: #874c1b;
 
   /* Signals */
-  --chili: #ff7a2e;
-  --salsa: #e5484d;
+  --chili: #c24a00;
+  --salsa: #be1323;
 
   /* On-colors */
-  --on-green: #f6f1e7;
+  --on-green: #ffffff;
   --on-lime: #0a120e;
-  --focus: #c8d82c;
+  --focus: #006d44;
 
   /* Type */
-  --f-display: 'Alfa Slab One', Rockwell, 'Roboto Slab', Georgia, serif;
-  --f-cond: 'Bebas Neue', 'Oswald', Impact, 'Arial Narrow', sans-serif;
-  --f-script: 'Lobster', 'Brush Script MT', cursive;
+  --f-display: 'Archivo', 'Arial Narrow', Impact, sans-serif;
   --f-body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+  --f-cond: var(--f-display); /* legacy alias */
 
   /* Radius */
   --r-sm: 6px;
-  --r-md: 14px;
-  --r-lg: 28px;
+  --r-md: 12px;
+  --r-lg: 20px;
   --r-pill: 999px;
 
-  /* Spacing (4px base) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-24: 96px;
-  --space-32: 128px;
-
-  /* Safe-area aware gutters */
+  /* Layout */
+  --header-h: 68px;
   --gut-l: max(16px, env(safe-area-inset-left, 0px));
   --gut-r: max(16px, env(safe-area-inset-right, 0px));
 
   /* Shadows */
-  --shadow-card: 0 18px 40px -18px rgba(0, 0, 0, 0.7);
-  --shadow-glow: 0 0 0 1px rgba(200, 216, 44, 0.35), 0 10px 40px -10px rgba(200, 216, 44, 0.45);
-}
-
-/* Optional light "Menu Board" theme (print / email). Only overrides change. */
-[data-theme='light'] {
-  color-scheme: light;
-  --ground: #fffcf7;
-  --surface: #f4efe4;
-  --surface-raised: #ffffff;
-  --line: #e2dacb;
-  --ink: #14231b;
-  --ink-muted: #55645a;
-  --accent-text: #006d44;
-  --chili: #c24a00;
-  --salsa: #be1323;
-  --focus: #006d44;
+  --shadow-card: 0 1px 2px rgba(20, 35, 27, 0.06), 0 8px 24px -12px rgba(20, 35, 27, 0.18);
+  --shadow-lift: 0 2px 4px rgba(20, 35, 27, 0.08), 0 18px 40px -16px rgba(20, 35, 27, 0.3);
 }

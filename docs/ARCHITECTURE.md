@@ -1,6 +1,8 @@
 # Architecture
 
-Vue 3 (Composition API, `<script setup>`), Vue Router, Vite, GSAP 3.12.5 + ScrollTrigger. JavaScript only.
+Vue 3 (Composition API, `<script setup>`), Vue Router, Vite, GSAP 3.12.5 (ticket total tween only). JavaScript only.
+
+> **Session 8 (2026-11-09):** the site was redesigned sales-first. Current layout components: layout/PromoBar, SiteHeader, MobileDrawer, MobileOrderBar, SiteFooter, ToastNotice; sections/HeroPromo, CategoryGrid, BuildYourOwn, UpsellBand, CrowdPleasers, LocationsSection, JoinFranchise; ui/MenuTile, MenuItemCard, MenuTabs, MenuRow, LocationCard, OptionChip, HeatIcons, BaseButton, SectionHead, AppLink. Sales data lives in `data/catalog.js`; the mobile order bar state in `composables/useOrderBar.js`. The folder map and motion notes below describe the earlier brand build (git tag `brand-version`) where they differ.
 
 ## Folder map
 
@@ -10,7 +12,7 @@ vite.config.js             "@" alias -> src, vitest config
 BRAND.md                   design + build spec (source of truth)
 reference/                 original single-file build, for visual comparison
 docs/                      this documentation
-tests/                     vitest: builder, data, app smoke test, ordering
+tests/                     vitest: builder, data, app smoke test
 public/                    favicon + OG image (badge)
 src/
   main.js                  creates app, installs router, loads CSS
@@ -59,24 +61,6 @@ Rule (BRAND.md §8): `total = protein + $1.95 guac + $2.95 extra protein`. Base,
 - Rule kept from the spec: animate **from** a visible state; opacity never starts at 0 (uses .15).
 - `OrderTicket`, `MobileDrawer`, `LocationsSection` animate outside `useMotion` because they react to state, and check `prefersReducedMotion()` themselves.
 - `App.vue` calls `ScrollTrigger.refresh()` after each route change.
-
-## Ordering flow (`/order`, mobile-first)
-
-```
-src/order/
-  data/            menu.seed.json, locations.seed.json   (prices in cents; from the owner's ordering docs)
-  lib/pricing.js   unit price, validation, level/selection rules, tax/tip   (pure, tested)
-  lib/hours.js     open/closed + pickup slots in the store time zone, DST-safe (pure, tested)
-  lib/catalog.js   read access to the seed (swap for API calls later)
-  useOrder.js      persisted store: chosen store, bag lines, in-progress meal
-  components/      ModifierGroup, LevelControl, StickyBar, BagSheet, OrderHeader, MealExtras
-  views/           OrderShell, OrderLocationView, OrderMenuView, OrderBuilderView, OrderItemView, OrderCheckoutView
-```
-
-- Routes: `/order` (picker), `/order/:store` (menu), `/order/:store/build?step=`, `/order/:store/item/:slug`, `/order/checkout`. `meta.order` makes `App.vue` hide the marketing header/footer.
-- Guard: a non-OPEN or unknown `:store` redirects to `/order?change=1`. A remembered store skips the picker.
-- The bag stores only selections; prices are recomputed from the catalog on read, so a stale price can never be shown. When a server exists it must re-price (client totals are display-only).
-- No GSAP in this flow (BRAND/ordering docs: CSS transitions only, honour reduced motion).
 
 ## Routing
 

@@ -19,6 +19,4 @@ defineProps({ level: { type: Number, required: true } })
 <style scoped>
 .icons { display: inline-flex; gap: 1px; }
 .icons svg { width: 12px; height: 14px; fill: var(--salsa); }
-/* Selected chip is lime: darken the chili for contrast. */
-:global(.chip[aria-pressed='true']) .icons svg { fill: #8d1219; }
 </style>
