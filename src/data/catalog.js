@@ -15,9 +15,10 @@ export const photos = {
 // steps: every frame a keyframe so the builder preview can seek instantly.
 // guac: 3.6 s cut (10.8–14.4 s) of the guac scoop landing, for the upsell band.
 export const videos = {
-  loop: '/media/bowl-loop.mp4',
-  steps: '/media/bowl-steps.mp4',
-  guac: '/media/guac-loop.mp4',
+  loop: '/media/2.mp4',
+  steps: '/media/4.mp4',
+  guac: '/media/3.mp4',
+  tile: '/media/1.mp4',
 }
 
 const low = (xs) => Math.min(...xs)
@@ -59,7 +60,7 @@ export const featuredTiles = [
     calories: byo.calories,
     from: fromPrices.byo,
     image: photos.bowl,
-    video: videos.loop,
+    video: videos.tile,
     badge: 'Build your own',
     to: '/menu#build',
   },
